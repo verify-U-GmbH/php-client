@@ -79,7 +79,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure HTTP basic authorization: basicAuth
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
+              ->setPassword(''); // leave empty
 
 
 $apiInstance = new OpenAPI\Client\Api\IdentificationsApi(
