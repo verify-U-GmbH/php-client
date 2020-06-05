@@ -1,6 +1,6 @@
 # OpenAPI\Client\IdentificationsApi
 
-All URIs are relative to *https://verify-u.com/api*
+All URIs are relative to *https://app.verify-u.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

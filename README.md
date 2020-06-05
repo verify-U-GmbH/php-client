@@ -102,7 +102,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://verify-u.com/api*
+All URIs are relative to *https://app.verify-u.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
