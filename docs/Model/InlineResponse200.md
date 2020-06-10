@@ -4,15 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**age_permission** | **bool** | Wether the permission to access his age was granted by the client | [optional] 
-**channel_name** | **string** | Name of the ID channel which was used for identification | [optional] 
-**created_at** | **string** | Time at which the object was created | [optional] 
-**full_name_permission** | **bool** | Wether the permission to access his full name was granted by the client | [optional] 
-**gender_permission** | **bool** | Wether the permission to access his gender was granted by the client | [optional] 
-**id** | **string** | The unique ID of the client&#39;s identification | [optional] 
-**passport_permission** | **bool** | Wether the permission to access his ID document data was granted by the client | [optional] 
-**state** | **string** | The state parameter provided for the client&#39;s identification | [optional] 
-**step** | **int** | The process step of the client&#39;s identification | [optional] 
+**address** | **string** | The client&#39;s address in format provided by ID document | [optional] 
+**created_at** | [**\DateTime**](\DateTime.md) | Time at which the object was created in notation as defined by RFC 3339, section 5.6 | [optional] 
+**date_of_birth** | **string** | The client&#39;s date of birth as represented in MRZ of ID document | [optional] 
+**first_name** | **string** | The client&#39;s first name | [optional] 
+**gender** | **string** | The client&#39;s gender | [optional] 
+**id** | **string** | ID of this ID document | [optional] 
+**id_document** | [**\OpenAPI\Client\Model\IdentificationsIdDocument**](IdentificationsIdDocument.md) |  | [optional] 
+**id_document_back** | [**\OpenAPI\Client\Model\IdentificationsIdDocumentBack**](IdentificationsIdDocumentBack.md) |  | [optional] 
+**id_document_secondary** | [**\OpenAPI\Client\Model\IdentificationsIdDocumentSecondary**](IdentificationsIdDocumentSecondary.md) |  | [optional] 
+**last_name** | **string** | The client&#39;s last name | [optional] 
+**primary_id_document_number** | **string** | Number of the primary ID document | [optional] 
+**rejected** | **bool** | Indicates whether identification has been rejected | [optional] 
+**rejection_cause** | **string** | Identification rejection cause | [optional] 
+**state** | **string** | OAuth parameter in format &#x60;[CLIENT_REFERENCE_ID]:[SESSION_ID]&#x60; supplied to identification gateway | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

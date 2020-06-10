@@ -57,15 +57,20 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'age_permission' => 'bool',
-        'channel_name' => 'string',
-        'created_at' => 'string',
-        'full_name_permission' => 'bool',
-        'gender_permission' => 'bool',
+        'address' => 'string',
+        'created_at' => '\DateTime',
+        'date_of_birth' => 'string',
+        'first_name' => 'string',
+        'gender' => 'string',
         'id' => 'string',
-        'passport_permission' => 'bool',
-        'state' => 'string',
-        'step' => 'int'
+        'id_document' => '\OpenAPI\Client\Model\IdentificationsIdDocument',
+        'id_document_back' => '\OpenAPI\Client\Model\IdentificationsIdDocumentBack',
+        'id_document_secondary' => '\OpenAPI\Client\Model\IdentificationsIdDocumentSecondary',
+        'last_name' => 'string',
+        'primary_id_document_number' => 'string',
+        'rejected' => 'bool',
+        'rejection_cause' => 'string',
+        'state' => 'string'
     ];
 
     /**
@@ -74,15 +79,20 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'age_permission' => null,
-        'channel_name' => null,
-        'created_at' => 'timestamp',
-        'full_name_permission' => null,
-        'gender_permission' => null,
+        'address' => null,
+        'created_at' => 'date-time',
+        'date_of_birth' => null,
+        'first_name' => null,
+        'gender' => null,
         'id' => 'uuid',
-        'passport_permission' => null,
-        'state' => null,
-        'step' => null
+        'id_document' => null,
+        'id_document_back' => null,
+        'id_document_secondary' => null,
+        'last_name' => null,
+        'primary_id_document_number' => null,
+        'rejected' => null,
+        'rejection_cause' => null,
+        'state' => null
     ];
 
     /**
@@ -112,15 +122,20 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'age_permission' => 'age_permission',
-        'channel_name' => 'channel_name',
+        'address' => 'address',
         'created_at' => 'created_at',
-        'full_name_permission' => 'full_name_permission',
-        'gender_permission' => 'gender_permission',
+        'date_of_birth' => 'date_of_birth',
+        'first_name' => 'first_name',
+        'gender' => 'gender',
         'id' => 'id',
-        'passport_permission' => 'passport_permission',
-        'state' => 'state',
-        'step' => 'step'
+        'id_document' => 'id_document',
+        'id_document_back' => 'id_document_back',
+        'id_document_secondary' => 'id_document_secondary',
+        'last_name' => 'last_name',
+        'primary_id_document_number' => 'primary_id_document_number',
+        'rejected' => 'rejected',
+        'rejection_cause' => 'rejection_cause',
+        'state' => 'state'
     ];
 
     /**
@@ -129,15 +144,20 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'age_permission' => 'setAgePermission',
-        'channel_name' => 'setChannelName',
+        'address' => 'setAddress',
         'created_at' => 'setCreatedAt',
-        'full_name_permission' => 'setFullNamePermission',
-        'gender_permission' => 'setGenderPermission',
+        'date_of_birth' => 'setDateOfBirth',
+        'first_name' => 'setFirstName',
+        'gender' => 'setGender',
         'id' => 'setId',
-        'passport_permission' => 'setPassportPermission',
-        'state' => 'setState',
-        'step' => 'setStep'
+        'id_document' => 'setIdDocument',
+        'id_document_back' => 'setIdDocumentBack',
+        'id_document_secondary' => 'setIdDocumentSecondary',
+        'last_name' => 'setLastName',
+        'primary_id_document_number' => 'setPrimaryIdDocumentNumber',
+        'rejected' => 'setRejected',
+        'rejection_cause' => 'setRejectionCause',
+        'state' => 'setState'
     ];
 
     /**
@@ -146,15 +166,20 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'age_permission' => 'getAgePermission',
-        'channel_name' => 'getChannelName',
+        'address' => 'getAddress',
         'created_at' => 'getCreatedAt',
-        'full_name_permission' => 'getFullNamePermission',
-        'gender_permission' => 'getGenderPermission',
+        'date_of_birth' => 'getDateOfBirth',
+        'first_name' => 'getFirstName',
+        'gender' => 'getGender',
         'id' => 'getId',
-        'passport_permission' => 'getPassportPermission',
-        'state' => 'getState',
-        'step' => 'getStep'
+        'id_document' => 'getIdDocument',
+        'id_document_back' => 'getIdDocumentBack',
+        'id_document_secondary' => 'getIdDocumentSecondary',
+        'last_name' => 'getLastName',
+        'primary_id_document_number' => 'getPrimaryIdDocumentNumber',
+        'rejected' => 'getRejected',
+        'rejection_cause' => 'getRejectionCause',
+        'state' => 'getState'
     ];
 
     /**
@@ -217,15 +242,20 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['age_permission'] = isset($data['age_permission']) ? $data['age_permission'] : null;
-        $this->container['channel_name'] = isset($data['channel_name']) ? $data['channel_name'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['full_name_permission'] = isset($data['full_name_permission']) ? $data['full_name_permission'] : null;
-        $this->container['gender_permission'] = isset($data['gender_permission']) ? $data['gender_permission'] : null;
+        $this->container['date_of_birth'] = isset($data['date_of_birth']) ? $data['date_of_birth'] : null;
+        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
+        $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['passport_permission'] = isset($data['passport_permission']) ? $data['passport_permission'] : null;
+        $this->container['id_document'] = isset($data['id_document']) ? $data['id_document'] : null;
+        $this->container['id_document_back'] = isset($data['id_document_back']) ? $data['id_document_back'] : null;
+        $this->container['id_document_secondary'] = isset($data['id_document_secondary']) ? $data['id_document_secondary'] : null;
+        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['primary_id_document_number'] = isset($data['primary_id_document_number']) ? $data['primary_id_document_number'] : null;
+        $this->container['rejected'] = isset($data['rejected']) ? $data['rejected'] : null;
+        $this->container['rejection_cause'] = isset($data['rejection_cause']) ? $data['rejection_cause'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['step'] = isset($data['step']) ? $data['step'] : null;
     }
 
     /**
@@ -253,49 +283,25 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets age_permission
-     *
-     * @return bool|null
-     */
-    public function getAgePermission()
-    {
-        return $this->container['age_permission'];
-    }
-
-    /**
-     * Sets age_permission
-     *
-     * @param bool|null $age_permission Wether the permission to access his age was granted by the client
-     *
-     * @return $this
-     */
-    public function setAgePermission($age_permission)
-    {
-        $this->container['age_permission'] = $age_permission;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel_name
+     * Gets address
      *
      * @return string|null
      */
-    public function getChannelName()
+    public function getAddress()
     {
-        return $this->container['channel_name'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets channel_name
+     * Sets address
      *
-     * @param string|null $channel_name Name of the ID channel which was used for identification
+     * @param string|null $address The client's address in format provided by ID document
      *
      * @return $this
      */
-    public function setChannelName($channel_name)
+    public function setAddress($address)
     {
-        $this->container['channel_name'] = $channel_name;
+        $this->container['address'] = $address;
 
         return $this;
     }
@@ -303,7 +309,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets created_at
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -313,7 +319,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets created_at
      *
-     * @param string|null $created_at Time at which the object was created
+     * @param \DateTime|null $created_at Time at which the object was created in notation as defined by RFC 3339, section 5.6
      *
      * @return $this
      */
@@ -325,49 +331,73 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets full_name_permission
+     * Gets date_of_birth
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getFullNamePermission()
+    public function getDateOfBirth()
     {
-        return $this->container['full_name_permission'];
+        return $this->container['date_of_birth'];
     }
 
     /**
-     * Sets full_name_permission
+     * Sets date_of_birth
      *
-     * @param bool|null $full_name_permission Wether the permission to access his full name was granted by the client
+     * @param string|null $date_of_birth The client's date of birth as represented in MRZ of ID document
      *
      * @return $this
      */
-    public function setFullNamePermission($full_name_permission)
+    public function setDateOfBirth($date_of_birth)
     {
-        $this->container['full_name_permission'] = $full_name_permission;
+        $this->container['date_of_birth'] = $date_of_birth;
 
         return $this;
     }
 
     /**
-     * Gets gender_permission
+     * Gets first_name
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getGenderPermission()
+    public function getFirstName()
     {
-        return $this->container['gender_permission'];
+        return $this->container['first_name'];
     }
 
     /**
-     * Sets gender_permission
+     * Sets first_name
      *
-     * @param bool|null $gender_permission Wether the permission to access his gender was granted by the client
+     * @param string|null $first_name The client's first name
      *
      * @return $this
      */
-    public function setGenderPermission($gender_permission)
+    public function setFirstName($first_name)
     {
-        $this->container['gender_permission'] = $gender_permission;
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender
+     *
+     * @return string|null
+     */
+    public function getGender()
+    {
+        return $this->container['gender'];
+    }
+
+    /**
+     * Sets gender
+     *
+     * @param string|null $gender The client's gender
+     *
+     * @return $this
+     */
+    public function setGender($gender)
+    {
+        $this->container['gender'] = $gender;
 
         return $this;
     }
@@ -385,7 +415,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id The unique ID of the client's identification
+     * @param string|null $id ID of this ID document
      *
      * @return $this
      */
@@ -397,25 +427,169 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets passport_permission
+     * Gets id_document
      *
-     * @return bool|null
+     * @return \OpenAPI\Client\Model\IdentificationsIdDocument|null
      */
-    public function getPassportPermission()
+    public function getIdDocument()
     {
-        return $this->container['passport_permission'];
+        return $this->container['id_document'];
     }
 
     /**
-     * Sets passport_permission
+     * Sets id_document
      *
-     * @param bool|null $passport_permission Wether the permission to access his ID document data was granted by the client
+     * @param \OpenAPI\Client\Model\IdentificationsIdDocument|null $id_document id_document
      *
      * @return $this
      */
-    public function setPassportPermission($passport_permission)
+    public function setIdDocument($id_document)
     {
-        $this->container['passport_permission'] = $passport_permission;
+        $this->container['id_document'] = $id_document;
+
+        return $this;
+    }
+
+    /**
+     * Gets id_document_back
+     *
+     * @return \OpenAPI\Client\Model\IdentificationsIdDocumentBack|null
+     */
+    public function getIdDocumentBack()
+    {
+        return $this->container['id_document_back'];
+    }
+
+    /**
+     * Sets id_document_back
+     *
+     * @param \OpenAPI\Client\Model\IdentificationsIdDocumentBack|null $id_document_back id_document_back
+     *
+     * @return $this
+     */
+    public function setIdDocumentBack($id_document_back)
+    {
+        $this->container['id_document_back'] = $id_document_back;
+
+        return $this;
+    }
+
+    /**
+     * Gets id_document_secondary
+     *
+     * @return \OpenAPI\Client\Model\IdentificationsIdDocumentSecondary|null
+     */
+    public function getIdDocumentSecondary()
+    {
+        return $this->container['id_document_secondary'];
+    }
+
+    /**
+     * Sets id_document_secondary
+     *
+     * @param \OpenAPI\Client\Model\IdentificationsIdDocumentSecondary|null $id_document_secondary id_document_secondary
+     *
+     * @return $this
+     */
+    public function setIdDocumentSecondary($id_document_secondary)
+    {
+        $this->container['id_document_secondary'] = $id_document_secondary;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     *
+     * @return string|null
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     *
+     * @param string|null $last_name The client's last name
+     *
+     * @return $this
+     */
+    public function setLastName($last_name)
+    {
+        $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets primary_id_document_number
+     *
+     * @return string|null
+     */
+    public function getPrimaryIdDocumentNumber()
+    {
+        return $this->container['primary_id_document_number'];
+    }
+
+    /**
+     * Sets primary_id_document_number
+     *
+     * @param string|null $primary_id_document_number Number of the primary ID document
+     *
+     * @return $this
+     */
+    public function setPrimaryIdDocumentNumber($primary_id_document_number)
+    {
+        $this->container['primary_id_document_number'] = $primary_id_document_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets rejected
+     *
+     * @return bool|null
+     */
+    public function getRejected()
+    {
+        return $this->container['rejected'];
+    }
+
+    /**
+     * Sets rejected
+     *
+     * @param bool|null $rejected Indicates whether identification has been rejected
+     *
+     * @return $this
+     */
+    public function setRejected($rejected)
+    {
+        $this->container['rejected'] = $rejected;
+
+        return $this;
+    }
+
+    /**
+     * Gets rejection_cause
+     *
+     * @return string|null
+     */
+    public function getRejectionCause()
+    {
+        return $this->container['rejection_cause'];
+    }
+
+    /**
+     * Sets rejection_cause
+     *
+     * @param string|null $rejection_cause Identification rejection cause
+     *
+     * @return $this
+     */
+    public function setRejectionCause($rejection_cause)
+    {
+        $this->container['rejection_cause'] = $rejection_cause;
 
         return $this;
     }
@@ -433,37 +607,13 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string|null $state The state parameter provided for the client's identification
+     * @param string|null $state OAuth parameter in format `[CLIENT_REFERENCE_ID]:[SESSION_ID]` supplied to identification gateway
      *
      * @return $this
      */
     public function setState($state)
     {
         $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets step
-     *
-     * @return int|null
-     */
-    public function getStep()
-    {
-        return $this->container['step'];
-    }
-
-    /**
-     * Sets step
-     *
-     * @param int|null $step The process step of the client's identification
-     *
-     * @return $this
-     */
-    public function setStep($step)
-    {
-        $this->container['step'] = $step;
 
         return $this;
     }

@@ -79,7 +79,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure HTTP basic authorization: basicAuth
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
-              ->setPassword(''); // leave empty
+              ->setPassword('YOUR_PASSWORD');
 
 
 $apiInstance = new OpenAPI\Client\Api\IdentificationsApi(
@@ -107,17 +107,17 @@ All URIs are relative to *https://app.verify-u.com/api*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *IdentificationsApi* | [**getIdentificationById**](docs/Api/IdentificationsApi.md#getidentificationbyid) | **GET** /identifications/{id} | identifications/{id}
-*IdentificationsApi* | [**getIdentificationDocumentById**](docs/Api/IdentificationsApi.md#getidentificationdocumentbyid) | **GET** /identifications/id-document/{id} | identifications/id-document/{id}
+*IdentificationsApi* | [**getIdentificationDocumentById**](docs/Api/IdentificationsApi.md#getidentificationdocumentbyid) | **GET** /identifications/id-document/{document_id} | identifications/id-document/{document_id}
+*IdentificationsApi* | [**getIdentificationVideoById**](docs/Api/IdentificationsApi.md#getidentificationvideobyid) | **GET** /identifications/video/{id} | identifications/video/{id}
 *IdentificationsApi* | [**getIdentificationsList**](docs/Api/IdentificationsApi.md#getidentificationslist) | **GET** /identifications | identifications
 
 
 ## Documentation For Models
 
+ - [IdentificationsIdDocument](docs/Model/IdentificationsIdDocument.md)
+ - [IdentificationsIdDocumentBack](docs/Model/IdentificationsIdDocumentBack.md)
+ - [IdentificationsIdDocumentSecondary](docs/Model/IdentificationsIdDocumentSecondary.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
- - [InlineResponse2001](docs/Model/InlineResponse2001.md)
- - [InlineResponse2001IdDocument](docs/Model/InlineResponse2001IdDocument.md)
- - [InlineResponse2001IdDocumentBack](docs/Model/InlineResponse2001IdDocumentBack.md)
- - [InlineResponse2001IdDocumentSecondary](docs/Model/InlineResponse2001IdDocumentSecondary.md)
 
 
 ## Documentation For Authorization
