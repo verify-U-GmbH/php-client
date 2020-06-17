@@ -82,19 +82,19 @@ $config = OpenAPI\Client\Configuration::getDefaultConfiguration()
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\IdentificationsApi(
+$apiInstance = new OpenAPI\Client\Api\DocumentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | ID of the requested identification
+$body = new \OpenAPI\Client\Model\Body(); // Body | Contract document pdf file
 
 try {
-    $result = $apiInstance->getIdentificationById($id);
+    $result = $apiInstance->createDocument($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling IdentificationsApi->getIdentificationById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->createDocument: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -106,6 +106,8 @@ All URIs are relative to *https://app.verify-u.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DocumentsApi* | [**createDocument**](docs/Api/DocumentsApi.md#createdocument) | **POST** /documents | documents
+*IdentificationsApi* | [**getEsignById**](docs/Api/IdentificationsApi.md#getesignbyid) | **GET** /identifications/esign/{id} | identifications/e-sign/{id}
 *IdentificationsApi* | [**getIdentificationById**](docs/Api/IdentificationsApi.md#getidentificationbyid) | **GET** /identifications/{id} | identifications/{id}
 *IdentificationsApi* | [**getIdentificationDocumentById**](docs/Api/IdentificationsApi.md#getidentificationdocumentbyid) | **GET** /identifications/id-document/{document_id} | identifications/id-document/{document_id}
 *IdentificationsApi* | [**getIdentificationVideoById**](docs/Api/IdentificationsApi.md#getidentificationvideobyid) | **GET** /identifications/video/{id} | identifications/video/{id}
@@ -114,6 +116,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Body](docs/Model/Body.md)
  - [IdentificationsIdDocument](docs/Model/IdentificationsIdDocument.md)
  - [IdentificationsIdDocumentBack](docs/Model/IdentificationsIdDocumentBack.md)
  - [IdentificationsIdDocumentSecondary](docs/Model/IdentificationsIdDocumentSecondary.md)

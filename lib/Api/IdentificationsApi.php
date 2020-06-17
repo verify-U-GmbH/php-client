@@ -116,6 +116,303 @@ class IdentificationsApi
     }
 
     /**
+     * Operation getEsignById
+     *
+     * identifications/e-sign/{id}
+     *
+     * @param  string $id ID of the identification (required)
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject|map[string,string]
+     */
+    public function getEsignById($id)
+    {
+        list($response) = $this->getEsignByIdWithHttpInfo($id);
+        return $response;
+    }
+
+    /**
+     * Operation getEsignByIdWithHttpInfo
+     *
+     * identifications/e-sign/{id}
+     *
+     * @param  string $id ID of the identification (required)
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SplFileObject|map[string,string], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEsignByIdWithHttpInfo($id)
+    {
+        $request = $this->getEsignByIdRequest($id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\SplFileObject' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('map[string,string]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'map[string,string]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SplFileObject';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SplFileObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'map[string,string]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEsignByIdAsync
+     *
+     * identifications/e-sign/{id}
+     *
+     * @param  string $id ID of the identification (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEsignByIdAsync($id)
+    {
+        return $this->getEsignByIdAsyncWithHttpInfo($id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getEsignByIdAsyncWithHttpInfo
+     *
+     * identifications/e-sign/{id}
+     *
+     * @param  string $id ID of the identification (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEsignByIdAsyncWithHttpInfo($id)
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->getEsignByIdRequest($id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getEsignById'
+     *
+     * @param  string $id ID of the identification (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getEsignByIdRequest($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getEsignById'
+            );
+        }
+
+        $resourcePath = '/identifications/esign/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/pdf', 'application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/pdf', 'application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getIdentificationById
      *
      * identifications/{id}
@@ -1011,14 +1308,17 @@ class IdentificationsApi
      *
      * identifications
      *
+     * @param  int $limit Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. (optional)
+     * @param  int $offset Specifies the page number of the identifications to be returned. Default is 0. (optional)
+     * @param  string $status When set, only identifications in this status are returned. Default is &#x60;init&#x60;. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse200[]
+     * @return \OpenAPI\Client\Model\InlineResponse200[]|map[string,string]
      */
-    public function getIdentificationsList()
+    public function getIdentificationsList($limit = null, $offset = null, $status = null)
     {
-        list($response) = $this->getIdentificationsListWithHttpInfo();
+        list($response) = $this->getIdentificationsListWithHttpInfo($limit, $offset, $status);
         return $response;
     }
 
@@ -1027,14 +1327,17 @@ class IdentificationsApi
      *
      * identifications
      *
+     * @param  int $limit Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. (optional)
+     * @param  int $offset Specifies the page number of the identifications to be returned. Default is 0. (optional)
+     * @param  string $status When set, only identifications in this status are returned. Default is &#x60;init&#x60;. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse200[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse200[]|map[string,string], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getIdentificationsListWithHttpInfo()
+    public function getIdentificationsListWithHttpInfo($limit = null, $offset = null, $status = null)
     {
-        $request = $this->getIdentificationsListRequest();
+        $request = $this->getIdentificationsListRequest($limit, $offset, $status);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1078,6 +1381,18 @@ class IdentificationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('map[string,string]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'map[string,string]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\OpenAPI\Client\Model\InlineResponse200[]';
@@ -1104,6 +1419,14 @@ class IdentificationsApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'map[string,string]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1114,13 +1437,16 @@ class IdentificationsApi
      *
      * identifications
      *
+     * @param  int $limit Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. (optional)
+     * @param  int $offset Specifies the page number of the identifications to be returned. Default is 0. (optional)
+     * @param  string $status When set, only identifications in this status are returned. Default is &#x60;init&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIdentificationsListAsync()
+    public function getIdentificationsListAsync($limit = null, $offset = null, $status = null)
     {
-        return $this->getIdentificationsListAsyncWithHttpInfo()
+        return $this->getIdentificationsListAsyncWithHttpInfo($limit, $offset, $status)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1133,14 +1459,17 @@ class IdentificationsApi
      *
      * identifications
      *
+     * @param  int $limit Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. (optional)
+     * @param  int $offset Specifies the page number of the identifications to be returned. Default is 0. (optional)
+     * @param  string $status When set, only identifications in this status are returned. Default is &#x60;init&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIdentificationsListAsyncWithHttpInfo()
+    public function getIdentificationsListAsyncWithHttpInfo($limit = null, $offset = null, $status = null)
     {
         $returnType = '\OpenAPI\Client\Model\InlineResponse200[]';
-        $request = $this->getIdentificationsListRequest();
+        $request = $this->getIdentificationsListRequest($limit, $offset, $status);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1179,12 +1508,22 @@ class IdentificationsApi
     /**
      * Create request for operation 'getIdentificationsList'
      *
+     * @param  int $limit Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. (optional)
+     * @param  int $offset Specifies the page number of the identifications to be returned. Default is 0. (optional)
+     * @param  string $status When set, only identifications in this status are returned. Default is &#x60;init&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getIdentificationsListRequest()
+    protected function getIdentificationsListRequest($limit = null, $offset = null, $status = null)
     {
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling IdentificationsApi.getIdentificationsList, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling IdentificationsApi.getIdentificationsList, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/identifications';
         $formParams = [];
@@ -1193,6 +1532,39 @@ class IdentificationsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+        // query params
+        if ($offset !== null) {
+            if('form' === 'form' && is_array($offset)) {
+                foreach($offset as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['offset'] = $offset;
+            }
+        }
+        // query params
+        if ($status !== null) {
+            if('form' === 'form' && is_array($status)) {
+                foreach($status as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['status'] = $status;
+            }
+        }
 
 
 

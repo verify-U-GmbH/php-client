@@ -4,11 +4,75 @@ All URIs are relative to *https://app.verify-u.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getEsignById**](IdentificationsApi.md#getEsignById) | **GET** /identifications/esign/{id} | identifications/e-sign/{id}
 [**getIdentificationById**](IdentificationsApi.md#getIdentificationById) | **GET** /identifications/{id} | identifications/{id}
 [**getIdentificationDocumentById**](IdentificationsApi.md#getIdentificationDocumentById) | **GET** /identifications/id-document/{document_id} | identifications/id-document/{document_id}
 [**getIdentificationVideoById**](IdentificationsApi.md#getIdentificationVideoById) | **GET** /identifications/video/{id} | identifications/video/{id}
 [**getIdentificationsList**](IdentificationsApi.md#getIdentificationsList) | **GET** /identifications | identifications
 
+
+
+## getEsignById
+
+> \SplFileObject getEsignById($id)
+
+identifications/e-sign/{id}
+
+Returns the contract document signed by the customer by digital signature
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basicAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new OpenAPI\Client\Api\IdentificationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | ID of the identification
+
+try {
+    $result = $apiInstance->getEsignById($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling IdentificationsApi->getEsignById: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**](../Model/.md)| ID of the identification |
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+[basicAuth](../../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/pdf, application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
 
 ## getIdentificationById
@@ -202,7 +266,7 @@ Name | Type | Description  | Notes
 
 ## getIdentificationsList
 
-> \OpenAPI\Client\Model\InlineResponse200[] getIdentificationsList()
+> \OpenAPI\Client\Model\InlineResponse200[] getIdentificationsList($limit, $offset, $status)
 
 identifications
 
@@ -227,9 +291,12 @@ $apiInstance = new OpenAPI\Client\Api\IdentificationsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$limit = 56; // int | Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10.
+$offset = 56; // int | Specifies the page number of the identifications to be returned. Default is 0.
+$status = 'status_example'; // string | When set, only identifications in this status are returned. Default is `init`.
 
 try {
-    $result = $apiInstance->getIdentificationsList();
+    $result = $apiInstance->getIdentificationsList($limit, $offset, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IdentificationsApi->getIdentificationsList: ', $e->getMessage(), PHP_EOL;
@@ -239,7 +306,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. | [optional]
+ **offset** | **int**| Specifies the page number of the identifications to be returned. Default is 0. | [optional]
+ **status** | **string**| When set, only identifications in this status are returned. Default is &#x60;init&#x60;. | [optional]
 
 ### Return type
 
