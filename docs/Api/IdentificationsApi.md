@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 identifications/e-sign/{id}
 
-Returns the contract document signed by the customer by digital signature
+Returns the client's contract document, signed by the customer with digital signature.
 
 ### Example
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 identifications/{id}
 
-Returns details of identification. Supply the unique identifier of the identification, received in OAuth response to the redirect URL
+Returns details of a single identification.
 
 ### Example
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 identifications/id-document/{document_id}
 
-Returns id-document file uploaded during identification
+Returns the client's id document image used for identification.
 
 ### Example
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 identifications/video/{id}
 
-Returns video record
+Returns the client's liveness video recording used for identification.
 
 ### Example
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 identifications
 
-Returns the last 10 identifications as a list
+Returns the latest identifications as a list. Most recent identifications appear first. Customize your query with the following parameters.
 
 ### Example
 
@@ -293,7 +293,7 @@ $apiInstance = new OpenAPI\Client\Api\IdentificationsApi(
 );
 $limit = 56; // int | Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10.
 $offset = 56; // int | Specifies the page number of the identifications to be returned. Default is 0.
-$status = 'status_example'; // string | When set, only identifications in this status are returned. Default is `init`.
+$status = 'status_example'; // string | When set, only identifications of this status are returned. Default is `init`.   * `init` - Identification has been initially started   * `id_verified` - Id document check completed   * `f2f_verified` - Face-to-face check completed   * `face_detected` - Face check completed   * `liveness_detected` - Liveness check completed   * `complete` - Identification has been completed successfully
 
 try {
     $result = $apiInstance->getIdentificationsList($limit, $offset, $status);
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. | [optional]
  **offset** | **int**| Specifies the page number of the identifications to be returned. Default is 0. | [optional]
- **status** | **string**| When set, only identifications in this status are returned. Default is &#x60;init&#x60;. | [optional]
+ **status** | **string**| When set, only identifications of this status are returned. Default is &#x60;init&#x60;.   * &#x60;init&#x60; - Identification has been initially started   * &#x60;id_verified&#x60; - Id document check completed   * &#x60;f2f_verified&#x60; - Face-to-face check completed   * &#x60;face_detected&#x60; - Face check completed   * &#x60;liveness_detected&#x60; - Liveness check completed   * &#x60;complete&#x60; - Identification has been completed successfully | [optional]
 
 ### Return type
 

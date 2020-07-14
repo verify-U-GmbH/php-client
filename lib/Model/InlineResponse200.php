@@ -70,7 +70,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'primary_id_document_number' => 'string',
         'rejected' => 'bool',
         'rejection_cause' => 'string',
-        'state' => 'string'
+        'state' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -92,7 +93,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'primary_id_document_number' => null,
         'rejected' => null,
         'rejection_cause' => null,
-        'state' => null
+        'state' => null,
+        'status' => null
     ];
 
     /**
@@ -135,7 +137,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'primary_id_document_number' => 'primary_id_document_number',
         'rejected' => 'rejected',
         'rejection_cause' => 'rejection_cause',
-        'state' => 'state'
+        'state' => 'state',
+        'status' => 'status'
     ];
 
     /**
@@ -157,7 +160,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'primary_id_document_number' => 'setPrimaryIdDocumentNumber',
         'rejected' => 'setRejected',
         'rejection_cause' => 'setRejectionCause',
-        'state' => 'setState'
+        'state' => 'setState',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -179,7 +183,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'primary_id_document_number' => 'getPrimaryIdDocumentNumber',
         'rejected' => 'getRejected',
         'rejection_cause' => 'getRejectionCause',
-        'state' => 'getState'
+        'state' => 'getState',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -256,6 +261,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         $this->container['rejected'] = isset($data['rejected']) ? $data['rejected'] : null;
         $this->container['rejection_cause'] = isset($data['rejection_cause']) ? $data['rejection_cause'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -614,6 +620,30 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     public function setState($state)
     {
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status Identification status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

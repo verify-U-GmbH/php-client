@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **rejected** | **bool** | Indicates whether identification has been rejected | [optional] 
 **rejection_cause** | **string** | Identification rejection cause | [optional] 
 **state** | **string** | OAuth parameter in format &#x60;[CLIENT_REFERENCE_ID]:[SESSION_ID]&#x60; supplied to identification gateway | [optional] 
+**status** | **string** | Identification status | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

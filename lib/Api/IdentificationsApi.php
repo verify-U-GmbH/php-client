@@ -1310,7 +1310,7 @@ class IdentificationsApi
      *
      * @param  int $limit Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. (optional)
      * @param  int $offset Specifies the page number of the identifications to be returned. Default is 0. (optional)
-     * @param  string $status When set, only identifications in this status are returned. Default is &#x60;init&#x60;. (optional)
+     * @param  string $status When set, only identifications of this status are returned. Default is &#x60;init&#x60;.   * &#x60;init&#x60; - Identification has been initially started   * &#x60;id_verified&#x60; - Id document check completed   * &#x60;f2f_verified&#x60; - Face-to-face check completed   * &#x60;face_detected&#x60; - Face check completed   * &#x60;liveness_detected&#x60; - Liveness check completed   * &#x60;complete&#x60; - Identification has been completed successfully (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1329,7 +1329,7 @@ class IdentificationsApi
      *
      * @param  int $limit Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. (optional)
      * @param  int $offset Specifies the page number of the identifications to be returned. Default is 0. (optional)
-     * @param  string $status When set, only identifications in this status are returned. Default is &#x60;init&#x60;. (optional)
+     * @param  string $status When set, only identifications of this status are returned. Default is &#x60;init&#x60;.   * &#x60;init&#x60; - Identification has been initially started   * &#x60;id_verified&#x60; - Id document check completed   * &#x60;f2f_verified&#x60; - Face-to-face check completed   * &#x60;face_detected&#x60; - Face check completed   * &#x60;liveness_detected&#x60; - Liveness check completed   * &#x60;complete&#x60; - Identification has been completed successfully (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1439,7 +1439,7 @@ class IdentificationsApi
      *
      * @param  int $limit Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. (optional)
      * @param  int $offset Specifies the page number of the identifications to be returned. Default is 0. (optional)
-     * @param  string $status When set, only identifications in this status are returned. Default is &#x60;init&#x60;. (optional)
+     * @param  string $status When set, only identifications of this status are returned. Default is &#x60;init&#x60;.   * &#x60;init&#x60; - Identification has been initially started   * &#x60;id_verified&#x60; - Id document check completed   * &#x60;f2f_verified&#x60; - Face-to-face check completed   * &#x60;face_detected&#x60; - Face check completed   * &#x60;liveness_detected&#x60; - Liveness check completed   * &#x60;complete&#x60; - Identification has been completed successfully (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1461,7 +1461,7 @@ class IdentificationsApi
      *
      * @param  int $limit Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. (optional)
      * @param  int $offset Specifies the page number of the identifications to be returned. Default is 0. (optional)
-     * @param  string $status When set, only identifications in this status are returned. Default is &#x60;init&#x60;. (optional)
+     * @param  string $status When set, only identifications of this status are returned. Default is &#x60;init&#x60;.   * &#x60;init&#x60; - Identification has been initially started   * &#x60;id_verified&#x60; - Id document check completed   * &#x60;f2f_verified&#x60; - Face-to-face check completed   * &#x60;face_detected&#x60; - Face check completed   * &#x60;liveness_detected&#x60; - Liveness check completed   * &#x60;complete&#x60; - Identification has been completed successfully (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1510,7 +1510,7 @@ class IdentificationsApi
      *
      * @param  int $limit Limits the number of identifications to be returned. Limit can range between 1 and 100, and the default is 10. (optional)
      * @param  int $offset Specifies the page number of the identifications to be returned. Default is 0. (optional)
-     * @param  string $status When set, only identifications in this status are returned. Default is &#x60;init&#x60;. (optional)
+     * @param  string $status When set, only identifications of this status are returned. Default is &#x60;init&#x60;.   * &#x60;init&#x60; - Identification has been initially started   * &#x60;id_verified&#x60; - Id document check completed   * &#x60;f2f_verified&#x60; - Face-to-face check completed   * &#x60;face_detected&#x60; - Face check completed   * &#x60;liveness_detected&#x60; - Liveness check completed   * &#x60;complete&#x60; - Identification has been completed successfully (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
