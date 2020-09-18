@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentsApi
+ * SchufaApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
 
 /**
- * DocumentsApi Class Doc Comment
+ * SchufaApi Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DocumentsApi
+class SchufaApi
 {
     /**
      * @var ClientInterface
@@ -116,36 +116,36 @@ class DocumentsApi
     }
 
     /**
-     * Operation createDocument
+     * Operation createSchufaById
      *
-     * documents
+     * schufa/{id}
      *
-     * @param  Body $body Contract document pdf file (required)
+     * @param  Body1 $body Address data (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string|map[string,string]
+     * @return \OpenAPI\Client\Model\InlineResponse2002|map[string,string]
      */
-    public function createDocument($body)
+    public function createSchufaById($body)
     {
-        list($response) = $this->createDocumentWithHttpInfo($body);
+        list($response) = $this->createSchufaByIdWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation createDocumentWithHttpInfo
+     * Operation createSchufaByIdWithHttpInfo
      *
-     * documents
+     * schufa/{id}
      *
-     * @param  Body $body Contract document pdf file (required)
+     * @param  Body1 $body Address data (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string|map[string,string], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2002|map[string,string], HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDocumentWithHttpInfo($body)
+    public function createSchufaByIdWithHttpInfo($body)
     {
-        $request = $this->createDocumentRequest($body);
+        $request = $this->createSchufaByIdRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -178,14 +178,14 @@ class DocumentsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('string' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse2002' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'string', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2002', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -203,7 +203,7 @@ class DocumentsApi
                     ];
             }
 
-            $returnType = 'string';
+            $returnType = '\OpenAPI\Client\Model\InlineResponse2002';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -222,7 +222,7 @@ class DocumentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'string',
+                        '\OpenAPI\Client\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -241,18 +241,18 @@ class DocumentsApi
     }
 
     /**
-     * Operation createDocumentAsync
+     * Operation createSchufaByIdAsync
      *
-     * documents
+     * schufa/{id}
      *
-     * @param  Body $body Contract document pdf file (required)
+     * @param  Body1 $body Address data (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDocumentAsync($body)
+    public function createSchufaByIdAsync($body)
     {
-        return $this->createDocumentAsyncWithHttpInfo($body)
+        return $this->createSchufaByIdAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,19 +261,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation createDocumentAsyncWithHttpInfo
+     * Operation createSchufaByIdAsyncWithHttpInfo
      *
-     * documents
+     * schufa/{id}
      *
-     * @param  Body $body Contract document pdf file (required)
+     * @param  Body1 $body Address data (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDocumentAsyncWithHttpInfo($body)
+    public function createSchufaByIdAsyncWithHttpInfo($body)
     {
-        $returnType = 'string';
-        $request = $this->createDocumentRequest($body);
+        $returnType = '\OpenAPI\Client\Model\InlineResponse2002';
+        $request = $this->createSchufaByIdRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -310,23 +310,23 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'createDocument'
+     * Create request for operation 'createSchufaById'
      *
-     * @param  Body $body Contract document pdf file (required)
+     * @param  Body1 $body Address data (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createDocumentRequest($body)
+    protected function createSchufaByIdRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createDocument'
+                'Missing the required parameter $body when calling createSchufaById'
             );
         }
 
-        $resourcePath = '/documents';
+        $resourcePath = '/schufa';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

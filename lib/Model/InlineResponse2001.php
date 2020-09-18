@@ -13,7 +13,7 @@
 /**
  * verify-u API
  *
- * # Introduction This API is documented in **OpenAPI 3.0 format**.  This API * enables a user to retrieve a list of the last 10 identifications * enables a user to retrieve profile data of a client's identification  # Basics * API calls have to be secured with HTTPS. * All data has to be submitted UTF-8 encoded. * The reply is sent JSON encoded.  # Authentication **verify-u** API uses Basic Authentication with secret key as username only.  Detailed information is provided at [Authentication](authentication)
+ * # Introduction This API is documented in **OpenAPI 3.0 format**.  This API allowst the following operations: * retrieve a list of the last 10 identifications * retrieve profile data of a client's identification * download media captured during identification * upload documents for signing * download signed documents * receive webhooks notifications regarding identification state changes  # Basics * API calls have to be secured with HTTPS. * All data has to be submitted UTF-8 encoded. * The reply is sent JSON encoded.  # Authentication **verify-u** API uses Basic Authentication with secret key as username only.  Detailed information is provided at [Authentication](authentication)
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -57,19 +57,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'state' => 'string',
-        'rejected' => 'bool',
-        'rejection_cause' => 'string',
-        'id_document' => '\OpenAPI\Client\Model\InlineResponse2001IdDocument',
-        'id_document_back' => '\OpenAPI\Client\Model\InlineResponse2001IdDocumentBack',
-        'id_document_secondary' => '\OpenAPI\Client\Model\InlineResponse2001IdDocumentSecondary',
-        'primary_id_document_number' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'gender' => 'string',
-        'date_of_birth' => 'string',
-        'address' => 'string',
-        'created_at' => '\DateTime'
+        'created_at' => '\DateTime',
+        'identification_id' => 'string',
+        'method' => 'string',
+        'reference_id' => 'string',
+        'state' => 'string'
     ];
 
     /**
@@ -78,19 +70,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'state' => null,
-        'rejected' => null,
-        'rejection_cause' => null,
-        'id_document' => null,
-        'id_document_back' => null,
-        'id_document_secondary' => null,
-        'primary_id_document_number' => null,
-        'first_name' => null,
-        'last_name' => null,
-        'gender' => null,
-        'date_of_birth' => null,
-        'address' => null,
-        'created_at' => 'date-time'
+        'created_at' => 'date-time',
+        'identification_id' => 'uuid',
+        'method' => null,
+        'reference_id' => null,
+        'state' => null
     ];
 
     /**
@@ -120,19 +104,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'state' => 'state',
-        'rejected' => 'rejected',
-        'rejection_cause' => 'rejection_cause',
-        'id_document' => 'id_document',
-        'id_document_back' => 'id_document_back',
-        'id_document_secondary' => 'id_document_secondary',
-        'primary_id_document_number' => 'primary_id_document_number',
-        'first_name' => 'first_name',
-        'last_name' => 'last_name',
-        'gender' => 'gender',
-        'date_of_birth' => 'date_of_birth',
-        'address' => 'address',
-        'created_at' => 'created_at'
+        'created_at' => 'created_at',
+        'identification_id' => 'identification_id',
+        'method' => 'method',
+        'reference_id' => 'reference_id',
+        'state' => 'state'
     ];
 
     /**
@@ -141,19 +117,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'state' => 'setState',
-        'rejected' => 'setRejected',
-        'rejection_cause' => 'setRejectionCause',
-        'id_document' => 'setIdDocument',
-        'id_document_back' => 'setIdDocumentBack',
-        'id_document_secondary' => 'setIdDocumentSecondary',
-        'primary_id_document_number' => 'setPrimaryIdDocumentNumber',
-        'first_name' => 'setFirstName',
-        'last_name' => 'setLastName',
-        'gender' => 'setGender',
-        'date_of_birth' => 'setDateOfBirth',
-        'address' => 'setAddress',
-        'created_at' => 'setCreatedAt'
+        'created_at' => 'setCreatedAt',
+        'identification_id' => 'setIdentificationId',
+        'method' => 'setMethod',
+        'reference_id' => 'setReferenceId',
+        'state' => 'setState'
     ];
 
     /**
@@ -162,19 +130,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'state' => 'getState',
-        'rejected' => 'getRejected',
-        'rejection_cause' => 'getRejectionCause',
-        'id_document' => 'getIdDocument',
-        'id_document_back' => 'getIdDocumentBack',
-        'id_document_secondary' => 'getIdDocumentSecondary',
-        'primary_id_document_number' => 'getPrimaryIdDocumentNumber',
-        'first_name' => 'getFirstName',
-        'last_name' => 'getLastName',
-        'gender' => 'getGender',
-        'date_of_birth' => 'getDateOfBirth',
-        'address' => 'getAddress',
-        'created_at' => 'getCreatedAt'
+        'created_at' => 'getCreatedAt',
+        'identification_id' => 'getIdentificationId',
+        'method' => 'getMethod',
+        'reference_id' => 'getReferenceId',
+        'state' => 'getState'
     ];
 
     /**
@@ -237,19 +197,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['rejected'] = isset($data['rejected']) ? $data['rejected'] : null;
-        $this->container['rejection_cause'] = isset($data['rejection_cause']) ? $data['rejection_cause'] : null;
-        $this->container['id_document'] = isset($data['id_document']) ? $data['id_document'] : null;
-        $this->container['id_document_back'] = isset($data['id_document_back']) ? $data['id_document_back'] : null;
-        $this->container['id_document_secondary'] = isset($data['id_document_secondary']) ? $data['id_document_secondary'] : null;
-        $this->container['primary_id_document_number'] = isset($data['primary_id_document_number']) ? $data['primary_id_document_number'] : null;
-        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
-        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
-        $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
-        $this->container['date_of_birth'] = isset($data['date_of_birth']) ? $data['date_of_birth'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['identification_id'] = isset($data['identification_id']) ? $data['identification_id'] : null;
+        $this->container['method'] = isset($data['method']) ? $data['method'] : null;
+        $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
     }
 
     /**
@@ -277,294 +229,6 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets state
-     *
-     * @return string|null
-     */
-    public function getState()
-    {
-        return $this->container['state'];
-    }
-
-    /**
-     * Sets state
-     *
-     * @param string|null $state OAuth parameter in format `[CLIENT_REFERENCE_ID]:[SESSION_ID]` supplied to identification gateway
-     *
-     * @return $this
-     */
-    public function setState($state)
-    {
-        $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets rejected
-     *
-     * @return bool|null
-     */
-    public function getRejected()
-    {
-        return $this->container['rejected'];
-    }
-
-    /**
-     * Sets rejected
-     *
-     * @param bool|null $rejected Indicates whether identification has been rejected
-     *
-     * @return $this
-     */
-    public function setRejected($rejected)
-    {
-        $this->container['rejected'] = $rejected;
-
-        return $this;
-    }
-
-    /**
-     * Gets rejection_cause
-     *
-     * @return string|null
-     */
-    public function getRejectionCause()
-    {
-        return $this->container['rejection_cause'];
-    }
-
-    /**
-     * Sets rejection_cause
-     *
-     * @param string|null $rejection_cause Identification rejection cause
-     *
-     * @return $this
-     */
-    public function setRejectionCause($rejection_cause)
-    {
-        $this->container['rejection_cause'] = $rejection_cause;
-
-        return $this;
-    }
-
-    /**
-     * Gets id_document
-     *
-     * @return \OpenAPI\Client\Model\InlineResponse2001IdDocument|null
-     */
-    public function getIdDocument()
-    {
-        return $this->container['id_document'];
-    }
-
-    /**
-     * Sets id_document
-     *
-     * @param \OpenAPI\Client\Model\InlineResponse2001IdDocument|null $id_document id_document
-     *
-     * @return $this
-     */
-    public function setIdDocument($id_document)
-    {
-        $this->container['id_document'] = $id_document;
-
-        return $this;
-    }
-
-    /**
-     * Gets id_document_back
-     *
-     * @return \OpenAPI\Client\Model\InlineResponse2001IdDocumentBack|null
-     */
-    public function getIdDocumentBack()
-    {
-        return $this->container['id_document_back'];
-    }
-
-    /**
-     * Sets id_document_back
-     *
-     * @param \OpenAPI\Client\Model\InlineResponse2001IdDocumentBack|null $id_document_back id_document_back
-     *
-     * @return $this
-     */
-    public function setIdDocumentBack($id_document_back)
-    {
-        $this->container['id_document_back'] = $id_document_back;
-
-        return $this;
-    }
-
-    /**
-     * Gets id_document_secondary
-     *
-     * @return \OpenAPI\Client\Model\InlineResponse2001IdDocumentSecondary|null
-     */
-    public function getIdDocumentSecondary()
-    {
-        return $this->container['id_document_secondary'];
-    }
-
-    /**
-     * Sets id_document_secondary
-     *
-     * @param \OpenAPI\Client\Model\InlineResponse2001IdDocumentSecondary|null $id_document_secondary id_document_secondary
-     *
-     * @return $this
-     */
-    public function setIdDocumentSecondary($id_document_secondary)
-    {
-        $this->container['id_document_secondary'] = $id_document_secondary;
-
-        return $this;
-    }
-
-    /**
-     * Gets primary_id_document_number
-     *
-     * @return string|null
-     */
-    public function getPrimaryIdDocumentNumber()
-    {
-        return $this->container['primary_id_document_number'];
-    }
-
-    /**
-     * Sets primary_id_document_number
-     *
-     * @param string|null $primary_id_document_number Number of the primary ID document
-     *
-     * @return $this
-     */
-    public function setPrimaryIdDocumentNumber($primary_id_document_number)
-    {
-        $this->container['primary_id_document_number'] = $primary_id_document_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets first_name
-     *
-     * @return string|null
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     *
-     * @param string|null $first_name The client's first name
-     *
-     * @return $this
-     */
-    public function setFirstName($first_name)
-    {
-        $this->container['first_name'] = $first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string|null
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string|null $last_name The client's last name
-     *
-     * @return $this
-     */
-    public function setLastName($last_name)
-    {
-        $this->container['last_name'] = $last_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets gender
-     *
-     * @return string|null
-     */
-    public function getGender()
-    {
-        return $this->container['gender'];
-    }
-
-    /**
-     * Sets gender
-     *
-     * @param string|null $gender The client's gender
-     *
-     * @return $this
-     */
-    public function setGender($gender)
-    {
-        $this->container['gender'] = $gender;
-
-        return $this;
-    }
-
-    /**
-     * Gets date_of_birth
-     *
-     * @return string|null
-     */
-    public function getDateOfBirth()
-    {
-        return $this->container['date_of_birth'];
-    }
-
-    /**
-     * Sets date_of_birth
-     *
-     * @param string|null $date_of_birth The client's date of birth as represented in MRZ of ID document
-     *
-     * @return $this
-     */
-    public function setDateOfBirth($date_of_birth)
-    {
-        $this->container['date_of_birth'] = $date_of_birth;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return string|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param string|null $address The client's address in format provided by ID document
-     *
-     * @return $this
-     */
-    public function setAddress($address)
-    {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
      * Gets created_at
      *
      * @return \DateTime|null
@@ -584,6 +248,102 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
     public function setCreatedAt($created_at)
     {
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets identification_id
+     *
+     * @return string|null
+     */
+    public function getIdentificationId()
+    {
+        return $this->container['identification_id'];
+    }
+
+    /**
+     * Sets identification_id
+     *
+     * @param string|null $identification_id Identification Id
+     *
+     * @return $this
+     */
+    public function setIdentificationId($identification_id)
+    {
+        $this->container['identification_id'] = $identification_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets method
+     *
+     * @return string|null
+     */
+    public function getMethod()
+    {
+        return $this->container['method'];
+    }
+
+    /**
+     * Sets method
+     *
+     * @param string|null $method Executed Schufa method
+     *
+     * @return $this
+     */
+    public function setMethod($method)
+    {
+        $this->container['method'] = $method;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference_id
+     *
+     * @return string|null
+     */
+    public function getReferenceId()
+    {
+        return $this->container['reference_id'];
+    }
+
+    /**
+     * Sets reference_id
+     *
+     * @param string|null $reference_id Reference ID of the Schufa call
+     *
+     * @return $this
+     */
+    public function setReferenceId($reference_id)
+    {
+        $this->container['reference_id'] = $reference_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state Schufa result
+     *
+     * @return $this
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
 
         return $this;
     }

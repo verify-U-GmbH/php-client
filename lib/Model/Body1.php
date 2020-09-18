@@ -1,6 +1,6 @@
 <?php
 /**
- * IdentificationsIdDocument
+ * Body1
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * IdentificationsIdDocument Class Doc Comment
+ * Body1 Class Doc Comment
  *
  * @category Class
- * @description Front side of the ID document
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class IdentificationsIdDocument implements ModelInterface, ArrayAccess
+class Body1 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = '_identifications_id_document';
+    protected static $openAPIModelName = 'body_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +57,12 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'country' => 'string',
-        'document_type' => 'string',
-        'expiration_date' => '\DateTime',
-        'id' => 'string',
-        'issue_date' => '\DateTime',
-        'mrz' => 'string',
-        'number' => 'string'
+        'method' => 'string',
+        'house_number' => 'string',
+        'street' => 'string',
+        'postal_code' => 'string',
+        'city' => 'string',
+        'iban' => 'string'
     ];
 
     /**
@@ -73,13 +71,12 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'country' => null,
-        'document_type' => null,
-        'expiration_date' => 'date',
-        'id' => 'uuid',
-        'issue_date' => 'date',
-        'mrz' => null,
-        'number' => null
+        'method' => null,
+        'house_number' => null,
+        'street' => null,
+        'postal_code' => null,
+        'city' => null,
+        'iban' => null
     ];
 
     /**
@@ -109,13 +106,12 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'country' => 'country',
-        'document_type' => 'document_type',
-        'expiration_date' => 'expiration_date',
-        'id' => 'id',
-        'issue_date' => 'issue_date',
-        'mrz' => 'mrz',
-        'number' => 'number'
+        'method' => 'method',
+        'house_number' => 'house_number',
+        'street' => 'street',
+        'postal_code' => 'postal_code',
+        'city' => 'city',
+        'iban' => 'iban'
     ];
 
     /**
@@ -124,13 +120,12 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'country' => 'setCountry',
-        'document_type' => 'setDocumentType',
-        'expiration_date' => 'setExpirationDate',
-        'id' => 'setId',
-        'issue_date' => 'setIssueDate',
-        'mrz' => 'setMrz',
-        'number' => 'setNumber'
+        'method' => 'setMethod',
+        'house_number' => 'setHouseNumber',
+        'street' => 'setStreet',
+        'postal_code' => 'setPostalCode',
+        'city' => 'setCity',
+        'iban' => 'setIban'
     ];
 
     /**
@@ -139,13 +134,12 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'country' => 'getCountry',
-        'document_type' => 'getDocumentType',
-        'expiration_date' => 'getExpirationDate',
-        'id' => 'getId',
-        'issue_date' => 'getIssueDate',
-        'mrz' => 'getMrz',
-        'number' => 'getNumber'
+        'method' => 'getMethod',
+        'house_number' => 'getHouseNumber',
+        'street' => 'getStreet',
+        'postal_code' => 'getPostalCode',
+        'city' => 'getCity',
+        'iban' => 'getIban'
     ];
 
     /**
@@ -189,8 +183,23 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const METHOD_IDENTCHECK = 'identcheck';
+    const METHOD_BANKCHECK = 'bankcheck';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD_IDENTCHECK,
+            self::METHOD_BANKCHECK,
+        ];
+    }
     
 
     /**
@@ -208,13 +217,12 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
-        $this->container['document_type'] = isset($data['document_type']) ? $data['document_type'] : null;
-        $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['issue_date'] = isset($data['issue_date']) ? $data['issue_date'] : null;
-        $this->container['mrz'] = isset($data['mrz']) ? $data['mrz'] : null;
-        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
+        $this->container['method'] = isset($data['method']) ? $data['method'] : null;
+        $this->container['house_number'] = isset($data['house_number']) ? $data['house_number'] : null;
+        $this->container['street'] = isset($data['street']) ? $data['street'] : null;
+        $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
+        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
+        $this->container['iban'] = isset($data['iban']) ? $data['iban'] : null;
     }
 
     /**
@@ -225,6 +233,14 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'method', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -242,169 +258,154 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets country
+     * Gets method
      *
      * @return string|null
      */
-    public function getCountry()
+    public function getMethod()
     {
-        return $this->container['country'];
+        return $this->container['method'];
     }
 
     /**
-     * Sets country
+     * Sets method
      *
-     * @param string|null $country Country which issued this ID document
+     * @param string|null $method Schufa check method
      *
      * @return $this
      */
-    public function setCountry($country)
+    public function setMethod($method)
     {
-        $this->container['country'] = $country;
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($method) && !in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'method', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['method'] = $method;
 
         return $this;
     }
 
     /**
-     * Gets document_type
+     * Gets house_number
      *
      * @return string|null
      */
-    public function getDocumentType()
+    public function getHouseNumber()
     {
-        return $this->container['document_type'];
+        return $this->container['house_number'];
     }
 
     /**
-     * Sets document_type
+     * Sets house_number
      *
-     * @param string|null $document_type Type of this ID document
+     * @param string|null $house_number House number
      *
      * @return $this
      */
-    public function setDocumentType($document_type)
+    public function setHouseNumber($house_number)
     {
-        $this->container['document_type'] = $document_type;
+        $this->container['house_number'] = $house_number;
 
         return $this;
     }
 
     /**
-     * Gets expiration_date
-     *
-     * @return \DateTime|null
-     */
-    public function getExpirationDate()
-    {
-        return $this->container['expiration_date'];
-    }
-
-    /**
-     * Sets expiration_date
-     *
-     * @param \DateTime|null $expiration_date Date at which this ID document expires
-     *
-     * @return $this
-     */
-    public function setExpirationDate($expiration_date)
-    {
-        $this->container['expiration_date'] = $expiration_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
+     * Gets street
      *
      * @return string|null
      */
-    public function getId()
+    public function getStreet()
     {
-        return $this->container['id'];
+        return $this->container['street'];
     }
 
     /**
-     * Sets id
+     * Sets street
      *
-     * @param string|null $id ID of this ID document
+     * @param string|null $street Street
      *
      * @return $this
      */
-    public function setId($id)
+    public function setStreet($street)
     {
-        $this->container['id'] = $id;
+        $this->container['street'] = $street;
 
         return $this;
     }
 
     /**
-     * Gets issue_date
-     *
-     * @return \DateTime|null
-     */
-    public function getIssueDate()
-    {
-        return $this->container['issue_date'];
-    }
-
-    /**
-     * Sets issue_date
-     *
-     * @param \DateTime|null $issue_date Date at which this ID document was issued
-     *
-     * @return $this
-     */
-    public function setIssueDate($issue_date)
-    {
-        $this->container['issue_date'] = $issue_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets mrz
+     * Gets postal_code
      *
      * @return string|null
      */
-    public function getMrz()
+    public function getPostalCode()
     {
-        return $this->container['mrz'];
+        return $this->container['postal_code'];
     }
 
     /**
-     * Sets mrz
+     * Sets postal_code
      *
-     * @param string|null $mrz The 'machine-readable zone' entry of this ID document
+     * @param string|null $postal_code Postal code
      *
      * @return $this
      */
-    public function setMrz($mrz)
+    public function setPostalCode($postal_code)
     {
-        $this->container['mrz'] = $mrz;
+        $this->container['postal_code'] = $postal_code;
 
         return $this;
     }
 
     /**
-     * Gets number
+     * Gets city
      *
      * @return string|null
      */
-    public function getNumber()
+    public function getCity()
     {
-        return $this->container['number'];
+        return $this->container['city'];
     }
 
     /**
-     * Sets number
+     * Sets city
      *
-     * @param string|null $number The number of this ID document
+     * @param string|null $city City
      *
      * @return $this
      */
-    public function setNumber($number)
+    public function setCity($city)
     {
-        $this->container['number'] = $number;
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets iban
+     *
+     * @return string|null
+     */
+    public function getIban()
+    {
+        return $this->container['iban'];
+    }
+
+    /**
+     * Sets iban
+     *
+     * @param string|null $iban Bank account IBAN
+     *
+     * @return $this
+     */
+    public function setIban($iban)
+    {
+        $this->container['iban'] = $iban;
 
         return $this;
     }

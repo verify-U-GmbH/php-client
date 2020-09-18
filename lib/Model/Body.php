@@ -13,7 +13,7 @@
 /**
  * verify-u API
  *
- * # Introduction This API is documented in **OpenAPI 3.0 format**.  This API * enables a user to retrieve a list of the last 10 identifications * enables a user to retrieve profile data of a client's identification  # Basics * API calls have to be secured with HTTPS. * All data has to be submitted UTF-8 encoded. * The reply is sent JSON encoded.  # Authentication **verify-u** API uses Basic Authentication with secret key as username only.  Detailed information is provided at [Authentication](authentication)
+ * # Introduction This API is documented in **OpenAPI 3.0 format**.  This API allowst the following operations: * retrieve a list of the last 10 identifications * retrieve profile data of a client's identification * download media captured during identification * upload documents for signing * download signed documents * receive webhooks notifications regarding identification state changes  # Basics * API calls have to be secured with HTTPS. * All data has to be submitted UTF-8 encoded. * The reply is sent JSON encoded.  # Authentication **verify-u** API uses Basic Authentication with secret key as username only.  Detailed information is provided at [Authentication](authentication)
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -58,7 +58,9 @@ class Body implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'data' => '\SplFileObject',
-        'description' => 'string'
+        'description' => 'string',
+        'first_name' => 'string',
+        'last_name' => 'string'
     ];
 
     /**
@@ -68,7 +70,9 @@ class Body implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'data' => 'binary',
-        'description' => null
+        'description' => null,
+        'first_name' => null,
+        'last_name' => null
     ];
 
     /**
@@ -99,7 +103,9 @@ class Body implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'data' => 'data',
-        'description' => 'description'
+        'description' => 'description',
+        'first_name' => 'first_name',
+        'last_name' => 'last_name'
     ];
 
     /**
@@ -109,7 +115,9 @@ class Body implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'data' => 'setData',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'first_name' => 'setFirstName',
+        'last_name' => 'setLastName'
     ];
 
     /**
@@ -119,7 +127,9 @@ class Body implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'data' => 'getData',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'first_name' => 'getFirstName',
+        'last_name' => 'getLastName'
     ];
 
     /**
@@ -184,6 +194,8 @@ class Body implements ModelInterface, ArrayAccess
     {
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
+        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
     }
 
     /**
@@ -254,6 +266,54 @@ class Body implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_name
+     *
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string|null $first_name The client's first name
+     *
+     * @return $this
+     */
+    public function setFirstName($first_name)
+    {
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     *
+     * @return string|null
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     *
+     * @param string|null $last_name The client's last name
+     *
+     * @return $this
+     */
+    public function setLastName($last_name)
+    {
+        $this->container['last_name'] = $last_name;
 
         return $this;
     }

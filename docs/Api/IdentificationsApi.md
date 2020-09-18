@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getIdentificationDocumentById**](IdentificationsApi.md#getIdentificationDocumentById) | **GET** /identifications/id-document/{document_id} | identifications/id-document/{document_id}
 [**getIdentificationVideoById**](IdentificationsApi.md#getIdentificationVideoById) | **GET** /identifications/video/{id} | identifications/video/{id}
 [**getIdentificationsList**](IdentificationsApi.md#getIdentificationsList) | **GET** /identifications | identifications
+[**getSchufaById**](IdentificationsApi.md#getSchufaById) | **GET** /identifications/schufa/{id} | identifications/schufa/{id}
 
 
 
@@ -316,6 +317,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\OpenAPI\Client\Model\InlineResponse200[]**](../Model/InlineResponse200.md)
+
+### Authorization
+
+[basicAuth](../../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getSchufaById
+
+> \OpenAPI\Client\Model\InlineResponse2001 getSchufaById($id)
+
+identifications/schufa/{id}
+
+Returns the client's Schufa result.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basicAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new OpenAPI\Client\Api\IdentificationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | ID of the identification
+
+try {
+    $result = $apiInstance->getSchufaById($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling IdentificationsApi->getSchufaById: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**](../Model/.md)| ID of the identification |
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 

@@ -13,7 +13,7 @@
 /**
  * verify-u API
  *
- * # Introduction This API is documented in **OpenAPI 3.0 format**.  This API * enables a user to retrieve a list of the last 10 identifications * enables a user to retrieve profile data of a client's identification  # Basics * API calls have to be secured with HTTPS. * All data has to be submitted UTF-8 encoded. * The reply is sent JSON encoded.  # Authentication **verify-u** API uses Basic Authentication with secret key as username only.  Detailed information is provided at [Authentication](authentication)
+ * # Introduction This API is documented in **OpenAPI 3.0 format**.  This API allowst the following operations: * retrieve a list of the last 10 identifications * retrieve profile data of a client's identification * download media captured during identification * upload documents for signing * download signed documents * receive webhooks notifications regarding identification state changes  # Basics * API calls have to be secured with HTTPS. * All data has to be submitted UTF-8 encoded. * The reply is sent JSON encoded.  # Authentication **verify-u** API uses Basic Authentication with secret key as username only.  Detailed information is provided at [Authentication](authentication)
  *
  * The version of the OpenAPI document: 1.0.0
  * 

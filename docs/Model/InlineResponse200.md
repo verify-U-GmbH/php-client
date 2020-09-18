@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **date_of_birth** | **string** | The client&#39;s date of birth as represented in MRZ of ID document | [optional] 
 **first_name** | **string** | The client&#39;s first name | [optional] 
 **gender** | **string** | The client&#39;s gender | [optional] 
-**id** | **string** | ID of this ID document | [optional] 
+**id** | **string** | Identification Id | [optional] 
 **id_document** | [**\OpenAPI\Client\Model\IdentificationsIdDocument**](IdentificationsIdDocument.md) |  | [optional] 
 **id_document_back** | [**\OpenAPI\Client\Model\IdentificationsIdDocumentBack**](IdentificationsIdDocumentBack.md) |  | [optional] 
 **id_document_secondary** | [**\OpenAPI\Client\Model\IdentificationsIdDocumentSecondary**](IdentificationsIdDocumentSecondary.md) |  | [optional] 

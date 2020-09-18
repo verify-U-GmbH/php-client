@@ -1,6 +1,6 @@
 <?php
 /**
- * IdentificationsIdDocument
+ * InlineResponse2002
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * IdentificationsIdDocument Class Doc Comment
+ * InlineResponse2002 Class Doc Comment
  *
  * @category Class
- * @description Front side of the ID document
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class IdentificationsIdDocument implements ModelInterface, ArrayAccess
+class InlineResponse2002 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = '_identifications_id_document';
+    protected static $openAPIModelName = 'inline_response_200_2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +57,8 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'country' => 'string',
-        'document_type' => 'string',
-        'expiration_date' => '\DateTime',
-        'id' => 'string',
-        'issue_date' => '\DateTime',
-        'mrz' => 'string',
-        'number' => 'string'
+        'identification_id' => 'string',
+        'state' => 'string'
     ];
 
     /**
@@ -73,13 +67,8 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'country' => null,
-        'document_type' => null,
-        'expiration_date' => 'date',
-        'id' => 'uuid',
-        'issue_date' => 'date',
-        'mrz' => null,
-        'number' => null
+        'identification_id' => 'uuid',
+        'state' => null
     ];
 
     /**
@@ -109,13 +98,8 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'country' => 'country',
-        'document_type' => 'document_type',
-        'expiration_date' => 'expiration_date',
-        'id' => 'id',
-        'issue_date' => 'issue_date',
-        'mrz' => 'mrz',
-        'number' => 'number'
+        'identification_id' => 'identification_id',
+        'state' => 'state'
     ];
 
     /**
@@ -124,13 +108,8 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'country' => 'setCountry',
-        'document_type' => 'setDocumentType',
-        'expiration_date' => 'setExpirationDate',
-        'id' => 'setId',
-        'issue_date' => 'setIssueDate',
-        'mrz' => 'setMrz',
-        'number' => 'setNumber'
+        'identification_id' => 'setIdentificationId',
+        'state' => 'setState'
     ];
 
     /**
@@ -139,13 +118,8 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'country' => 'getCountry',
-        'document_type' => 'getDocumentType',
-        'expiration_date' => 'getExpirationDate',
-        'id' => 'getId',
-        'issue_date' => 'getIssueDate',
-        'mrz' => 'getMrz',
-        'number' => 'getNumber'
+        'identification_id' => 'getIdentificationId',
+        'state' => 'getState'
     ];
 
     /**
@@ -208,13 +182,8 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
-        $this->container['document_type'] = isset($data['document_type']) ? $data['document_type'] : null;
-        $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['issue_date'] = isset($data['issue_date']) ? $data['issue_date'] : null;
-        $this->container['mrz'] = isset($data['mrz']) ? $data['mrz'] : null;
-        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
+        $this->container['identification_id'] = isset($data['identification_id']) ? $data['identification_id'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
     }
 
     /**
@@ -242,169 +211,49 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets country
+     * Gets identification_id
      *
      * @return string|null
      */
-    public function getCountry()
+    public function getIdentificationId()
     {
-        return $this->container['country'];
+        return $this->container['identification_id'];
     }
 
     /**
-     * Sets country
+     * Sets identification_id
      *
-     * @param string|null $country Country which issued this ID document
+     * @param string|null $identification_id Identification Id
      *
      * @return $this
      */
-    public function setCountry($country)
+    public function setIdentificationId($identification_id)
     {
-        $this->container['country'] = $country;
+        $this->container['identification_id'] = $identification_id;
 
         return $this;
     }
 
     /**
-     * Gets document_type
+     * Gets state
      *
      * @return string|null
      */
-    public function getDocumentType()
+    public function getState()
     {
-        return $this->container['document_type'];
+        return $this->container['state'];
     }
 
     /**
-     * Sets document_type
+     * Sets state
      *
-     * @param string|null $document_type Type of this ID document
+     * @param string|null $state Schufa result for client
      *
      * @return $this
      */
-    public function setDocumentType($document_type)
+    public function setState($state)
     {
-        $this->container['document_type'] = $document_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiration_date
-     *
-     * @return \DateTime|null
-     */
-    public function getExpirationDate()
-    {
-        return $this->container['expiration_date'];
-    }
-
-    /**
-     * Sets expiration_date
-     *
-     * @param \DateTime|null $expiration_date Date at which this ID document expires
-     *
-     * @return $this
-     */
-    public function setExpirationDate($expiration_date)
-    {
-        $this->container['expiration_date'] = $expiration_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id ID of this ID document
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets issue_date
-     *
-     * @return \DateTime|null
-     */
-    public function getIssueDate()
-    {
-        return $this->container['issue_date'];
-    }
-
-    /**
-     * Sets issue_date
-     *
-     * @param \DateTime|null $issue_date Date at which this ID document was issued
-     *
-     * @return $this
-     */
-    public function setIssueDate($issue_date)
-    {
-        $this->container['issue_date'] = $issue_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets mrz
-     *
-     * @return string|null
-     */
-    public function getMrz()
-    {
-        return $this->container['mrz'];
-    }
-
-    /**
-     * Sets mrz
-     *
-     * @param string|null $mrz The 'machine-readable zone' entry of this ID document
-     *
-     * @return $this
-     */
-    public function setMrz($mrz)
-    {
-        $this->container['mrz'] = $mrz;
-
-        return $this;
-    }
-
-    /**
-     * Gets number
-     *
-     * @return string|null
-     */
-    public function getNumber()
-    {
-        return $this->container['number'];
-    }
-
-    /**
-     * Sets number
-     *
-     * @param string|null $number The number of this ID document
-     *
-     * @return $this
-     */
-    public function setNumber($number)
-    {
-        $this->container['number'] = $number;
+        $this->container['state'] = $state;
 
         return $this;
     }

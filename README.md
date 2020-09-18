@@ -3,9 +3,13 @@
 # Introduction
 This API is documented in **OpenAPI 3.0 format**.
 
-This API
-* enables a user to retrieve a list of the last 10 identifications
-* enables a user to retrieve profile data of a client's identification
+This API allowst the following operations:
+* retrieve a list of the last 10 identifications
+* retrieve profile data of a client's identification
+* download media captured during identification
+* upload documents for signing
+* download signed documents
+* receive webhooks notifications regarding identification state changes
 
 # Basics
 * API calls have to be secured with HTTPS.
@@ -112,15 +116,20 @@ Class | Method | HTTP request | Description
 *IdentificationsApi* | [**getIdentificationDocumentById**](docs/Api/IdentificationsApi.md#getidentificationdocumentbyid) | **GET** /identifications/id-document/{document_id} | identifications/id-document/{document_id}
 *IdentificationsApi* | [**getIdentificationVideoById**](docs/Api/IdentificationsApi.md#getidentificationvideobyid) | **GET** /identifications/video/{id} | identifications/video/{id}
 *IdentificationsApi* | [**getIdentificationsList**](docs/Api/IdentificationsApi.md#getidentificationslist) | **GET** /identifications | identifications
+*IdentificationsApi* | [**getSchufaById**](docs/Api/IdentificationsApi.md#getschufabyid) | **GET** /identifications/schufa/{id} | identifications/schufa/{id}
+*SchufaApi* | [**createSchufaById**](docs/Api/SchufaApi.md#createschufabyid) | **POST** /schufa | schufa/{id}
 
 
 ## Documentation For Models
 
  - [Body](docs/Model/Body.md)
+ - [Body1](docs/Model/Body1.md)
  - [IdentificationsIdDocument](docs/Model/IdentificationsIdDocument.md)
  - [IdentificationsIdDocumentBack](docs/Model/IdentificationsIdDocumentBack.md)
  - [IdentificationsIdDocumentSecondary](docs/Model/IdentificationsIdDocumentSecondary.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
+ - [InlineResponse2001](docs/Model/InlineResponse2001.md)
+ - [InlineResponse2002](docs/Model/InlineResponse2002.md)
 
 
 ## Documentation For Authorization
