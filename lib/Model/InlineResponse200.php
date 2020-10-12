@@ -71,7 +71,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'rejected' => 'bool',
         'rejection_cause' => 'string',
         'state' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'audit_documents' => '\OpenAPI\Client\Model\IdentificationsAuditDocuments[]'
     ];
 
     /**
@@ -94,7 +95,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'rejected' => null,
         'rejection_cause' => null,
         'state' => null,
-        'status' => null
+        'status' => null,
+        'audit_documents' => null
     ];
 
     /**
@@ -138,7 +140,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'rejected' => 'rejected',
         'rejection_cause' => 'rejection_cause',
         'state' => 'state',
-        'status' => 'status'
+        'status' => 'status',
+        'audit_documents' => 'audit_documents'
     ];
 
     /**
@@ -161,7 +164,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'rejected' => 'setRejected',
         'rejection_cause' => 'setRejectionCause',
         'state' => 'setState',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'audit_documents' => 'setAuditDocuments'
     ];
 
     /**
@@ -184,7 +188,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'rejected' => 'getRejected',
         'rejection_cause' => 'getRejectionCause',
         'state' => 'getState',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'audit_documents' => 'getAuditDocuments'
     ];
 
     /**
@@ -262,6 +267,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         $this->container['rejection_cause'] = isset($data['rejection_cause']) ? $data['rejection_cause'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['audit_documents'] = isset($data['audit_documents']) ? $data['audit_documents'] : null;
     }
 
     /**
@@ -644,6 +650,30 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets audit_documents
+     *
+     * @return \OpenAPI\Client\Model\IdentificationsAuditDocuments[]|null
+     */
+    public function getAuditDocuments()
+    {
+        return $this->container['audit_documents'];
+    }
+
+    /**
+     * Sets audit_documents
+     *
+     * @param \OpenAPI\Client\Model\IdentificationsAuditDocuments[]|null $audit_documents Audit documents
+     *
+     * @return $this
+     */
+    public function setAuditDocuments($audit_documents)
+    {
+        $this->container['audit_documents'] = $audit_documents;
 
         return $this;
     }
