@@ -1,6 +1,6 @@
 <?php
 /**
- * Body
+ * InlineObject
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * Body Class Doc Comment
+ * InlineObject Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Body implements ModelInterface, ArrayAccess
+class InlineObject implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Body implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'body';
+    protected static $openAPIModelName = 'inline_object';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,8 @@ class Body implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'method' => 'string',
-        'house_number' => 'string',
-        'street' => 'string',
-        'postal_code' => 'string',
-        'city' => 'string',
-        'iban' => 'string'
+        'description' => 'string',
+        'data' => '\SplFileObject'
     ];
 
     /**
@@ -71,12 +67,8 @@ class Body implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'method' => null,
-        'house_number' => null,
-        'street' => null,
-        'postal_code' => null,
-        'city' => null,
-        'iban' => null
+        'description' => null,
+        'data' => 'binary'
     ];
 
     /**
@@ -106,12 +98,8 @@ class Body implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'method' => 'method',
-        'house_number' => 'house_number',
-        'street' => 'street',
-        'postal_code' => 'postal_code',
-        'city' => 'city',
-        'iban' => 'iban'
+        'description' => 'description',
+        'data' => 'data'
     ];
 
     /**
@@ -120,12 +108,8 @@ class Body implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'method' => 'setMethod',
-        'house_number' => 'setHouseNumber',
-        'street' => 'setStreet',
-        'postal_code' => 'setPostalCode',
-        'city' => 'setCity',
-        'iban' => 'setIban'
+        'description' => 'setDescription',
+        'data' => 'setData'
     ];
 
     /**
@@ -134,12 +118,8 @@ class Body implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'method' => 'getMethod',
-        'house_number' => 'getHouseNumber',
-        'street' => 'getStreet',
-        'postal_code' => 'getPostalCode',
-        'city' => 'getCity',
-        'iban' => 'getIban'
+        'description' => 'getDescription',
+        'data' => 'getData'
     ];
 
     /**
@@ -183,23 +163,8 @@ class Body implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const METHOD_IDENTCHECK = 'identcheck';
-    const METHOD_BANKCHECK = 'bankcheck';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMethodAllowableValues()
-    {
-        return [
-            self::METHOD_IDENTCHECK,
-            self::METHOD_BANKCHECK,
-        ];
-    }
     
 
     /**
@@ -217,12 +182,8 @@ class Body implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['method'] = isset($data['method']) ? $data['method'] : null;
-        $this->container['house_number'] = isset($data['house_number']) ? $data['house_number'] : null;
-        $this->container['street'] = isset($data['street']) ? $data['street'] : null;
-        $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
-        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
-        $this->container['iban'] = isset($data['iban']) ? $data['iban'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -233,14 +194,6 @@ class Body implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getMethodAllowableValues();
-        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'method', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -258,154 +211,49 @@ class Body implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets method
+     * Gets description
      *
      * @return string|null
      */
-    public function getMethod()
+    public function getDescription()
     {
-        return $this->container['method'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets method
+     * Sets description
      *
-     * @param string|null $method Schufa check method
+     * @param string|null $description description
      *
      * @return $this
      */
-    public function setMethod($method)
+    public function setDescription($description)
     {
-        $allowedValues = $this->getMethodAllowableValues();
-        if (!is_null($method) && !in_array($method, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'method', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['method'] = $method;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets house_number
+     * Gets data
      *
-     * @return string|null
+     * @return \SplFileObject|null
      */
-    public function getHouseNumber()
+    public function getData()
     {
-        return $this->container['house_number'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets house_number
+     * Sets data
      *
-     * @param string|null $house_number House number
+     * @param \SplFileObject|null $data data
      *
      * @return $this
      */
-    public function setHouseNumber($house_number)
+    public function setData($data)
     {
-        $this->container['house_number'] = $house_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets street
-     *
-     * @return string|null
-     */
-    public function getStreet()
-    {
-        return $this->container['street'];
-    }
-
-    /**
-     * Sets street
-     *
-     * @param string|null $street Street
-     *
-     * @return $this
-     */
-    public function setStreet($street)
-    {
-        $this->container['street'] = $street;
-
-        return $this;
-    }
-
-    /**
-     * Gets postal_code
-     *
-     * @return string|null
-     */
-    public function getPostalCode()
-    {
-        return $this->container['postal_code'];
-    }
-
-    /**
-     * Sets postal_code
-     *
-     * @param string|null $postal_code Postal code
-     *
-     * @return $this
-     */
-    public function setPostalCode($postal_code)
-    {
-        $this->container['postal_code'] = $postal_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets city
-     *
-     * @return string|null
-     */
-    public function getCity()
-    {
-        return $this->container['city'];
-    }
-
-    /**
-     * Sets city
-     *
-     * @param string|null $city City
-     *
-     * @return $this
-     */
-    public function setCity($city)
-    {
-        $this->container['city'] = $city;
-
-        return $this;
-    }
-
-    /**
-     * Gets iban
-     *
-     * @return string|null
-     */
-    public function getIban()
-    {
-        return $this->container['iban'];
-    }
-
-    /**
-     * Sets iban
-     *
-     * @param string|null $iban Bank account IBAN
-     *
-     * @return $this
-     */
-    public function setIban($iban)
-    {
-        $this->container['iban'] = $iban;
+        $this->container['data'] = $data;
 
         return $this;
     }

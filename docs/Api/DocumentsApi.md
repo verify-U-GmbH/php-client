@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## createDocument
 
-> string createDocument($body)
+> string createDocument($description, $data)
 
 documents
 
@@ -35,10 +35,11 @@ $apiInstance = new OpenAPI\Client\Api\DocumentsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\Body(); // Body | Contract document pdf file
+$description = 'description_example'; // string | 
+$data = "/path/to/file.txt"; // \SplFileObject | 
 
 try {
-    $result = $apiInstance->createDocument($body);
+    $result = $apiInstance->createDocument($description, $data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentsApi->createDocument: ', $e->getMessage(), PHP_EOL;
@@ -51,7 +52,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body**](../Model/.md)| Contract document pdf file |
+ **description** | **string**|  | [optional]
+ **data** | **\SplFileObject****\SplFileObject**|  | [optional]
 
 ### Return type
 
@@ -63,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

@@ -120,7 +120,7 @@ class SchufaApi
      *
      * schufa/{id}
      *
-     * @param  Body1 $body Address data (required)
+     * @param  Body $body Address data (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -137,7 +137,7 @@ class SchufaApi
      *
      * schufa/{id}
      *
-     * @param  Body1 $body Address data (required)
+     * @param  Body $body Address data (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -245,7 +245,7 @@ class SchufaApi
      *
      * schufa/{id}
      *
-     * @param  Body1 $body Address data (required)
+     * @param  Body $body Address data (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -265,7 +265,7 @@ class SchufaApi
      *
      * schufa/{id}
      *
-     * @param  Body1 $body Address data (required)
+     * @param  Body $body Address data (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -312,7 +312,7 @@ class SchufaApi
     /**
      * Create request for operation 'createSchufaById'
      *
-     * @param  Body1 $body Address data (required)
+     * @param  Body $body Address data (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

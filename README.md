@@ -92,10 +92,11 @@ $apiInstance = new OpenAPI\Client\Api\DocumentsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\Body(); // Body | Contract document pdf file
+$description = 'description_example'; // string | 
+$data = "/path/to/file.txt"; // \SplFileObject | 
 
 try {
-    $result = $apiInstance->createDocument($body);
+    $result = $apiInstance->createDocument($description, $data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentsApi->createDocument: ', $e->getMessage(), PHP_EOL;
@@ -125,11 +126,11 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Body](docs/Model/Body.md)
- - [Body1](docs/Model/Body1.md)
  - [IdentificationsAuditDocuments](docs/Model/IdentificationsAuditDocuments.md)
  - [IdentificationsIdDocument](docs/Model/IdentificationsIdDocument.md)
  - [IdentificationsIdDocumentBack](docs/Model/IdentificationsIdDocumentBack.md)
  - [IdentificationsIdDocumentSecondary](docs/Model/IdentificationsIdDocumentSecondary.md)
+ - [InlineObject](docs/Model/InlineObject.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [InlineResponse2001](docs/Model/InlineResponse2001.md)
  - [InlineResponse2002](docs/Model/InlineResponse2002.md)

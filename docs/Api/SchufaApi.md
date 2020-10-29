@@ -35,7 +35,7 @@ $apiInstance = new OpenAPI\Client\Api\SchufaApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\Body1(); // Body1 | Address data
+$body = new \OpenAPI\Client\Model\Body(); // Body | Address data
 
 try {
     $result = $apiInstance->createSchufaById($body);
@@ -51,7 +51,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body1**](../Model/.md)| Address data |
+ **body** | [**Body**](../Model/.md)| Address data |
 
 ### Return type
 

@@ -120,15 +120,16 @@ class DocumentsApi
      *
      * documents
      *
-     * @param  Body $body Contract document pdf file (required)
+     * @param  string $description description (optional)
+     * @param  \SplFileObject $data data (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string|map[string,string]
      */
-    public function createDocument($body)
+    public function createDocument($description = null, $data = null)
     {
-        list($response) = $this->createDocumentWithHttpInfo($body);
+        list($response) = $this->createDocumentWithHttpInfo($description, $data);
         return $response;
     }
 
@@ -137,15 +138,16 @@ class DocumentsApi
      *
      * documents
      *
-     * @param  Body $body Contract document pdf file (required)
+     * @param  string $description (optional)
+     * @param  \SplFileObject $data (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string|map[string,string], HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDocumentWithHttpInfo($body)
+    public function createDocumentWithHttpInfo($description = null, $data = null)
     {
-        $request = $this->createDocumentRequest($body);
+        $request = $this->createDocumentRequest($description, $data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -245,14 +247,15 @@ class DocumentsApi
      *
      * documents
      *
-     * @param  Body $body Contract document pdf file (required)
+     * @param  string $description (optional)
+     * @param  \SplFileObject $data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDocumentAsync($body)
+    public function createDocumentAsync($description = null, $data = null)
     {
-        return $this->createDocumentAsyncWithHttpInfo($body)
+        return $this->createDocumentAsyncWithHttpInfo($description, $data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -265,15 +268,16 @@ class DocumentsApi
      *
      * documents
      *
-     * @param  Body $body Contract document pdf file (required)
+     * @param  string $description (optional)
+     * @param  \SplFileObject $data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDocumentAsyncWithHttpInfo($body)
+    public function createDocumentAsyncWithHttpInfo($description = null, $data = null)
     {
         $returnType = 'string';
-        $request = $this->createDocumentRequest($body);
+        $request = $this->createDocumentRequest($description, $data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,19 +316,14 @@ class DocumentsApi
     /**
      * Create request for operation 'createDocument'
      *
-     * @param  Body $body Contract document pdf file (required)
+     * @param  string $description (optional)
+     * @param  \SplFileObject $data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createDocumentRequest($body)
+    protected function createDocumentRequest($description = null, $data = null)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createDocument'
-            );
-        }
 
         $resourcePath = '/documents';
         $formParams = [];
@@ -335,15 +334,16 @@ class DocumentsApi
 
 
 
-        // path params
-        if ($body !== null) {
-            $resourcePath = str_replace(
-                '{' . 'body' . '}',
-                ObjectSerializer::toPathValue($body),
-                $resourcePath
-            );
-        }
 
+        // form params
+        if ($description !== null) {
+            $formParams['description'] = ObjectSerializer::toFormValue($description);
+        }
+        // form params
+        if ($data !== null) {
+            $multipart = true;
+            $formParams['data'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($data), 'rb');
+        }
         // body params
         $_tempBody = null;
 
@@ -354,7 +354,7 @@ class DocumentsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['multipart/form-data']
             );
         }
 
