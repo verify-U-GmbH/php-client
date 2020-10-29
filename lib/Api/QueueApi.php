@@ -1,6 +1,6 @@
 <?php
 /**
- * SchufaApi
+ * QueueApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
 
 /**
- * SchufaApi Class Doc Comment
+ * QueueApi Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SchufaApi
+class QueueApi
 {
     /**
      * @var ClientInterface
@@ -116,36 +116,34 @@ class SchufaApi
     }
 
     /**
-     * Operation createSchufaById
+     * Operation getQueue
      *
-     * schufa/{id}
+     * queue
      *
-     * @param  Body1 $body Address data (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse2003|map[string,string]
+     * @return \OpenAPI\Client\Model\InlineResponse2002
      */
-    public function createSchufaById($body)
+    public function getQueue()
     {
-        list($response) = $this->createSchufaByIdWithHttpInfo($body);
+        list($response) = $this->getQueueWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation createSchufaByIdWithHttpInfo
+     * Operation getQueueWithHttpInfo
      *
-     * schufa/{id}
+     * queue
      *
-     * @param  Body1 $body Address data (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse2003|map[string,string], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSchufaByIdWithHttpInfo($body)
+    public function getQueueWithHttpInfo()
     {
-        $request = $this->createSchufaByIdRequest($body);
+        $request = $this->getQueueRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -178,32 +176,20 @@ class SchufaApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse2003' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InlineResponse2002' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2003', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('map[string,string]' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'map[string,string]', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse2002', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse2003';
+            $returnType = '\OpenAPI\Client\Model\InlineResponse2002';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -222,15 +208,7 @@ class SchufaApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse2003',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'map[string,string]',
+                        '\OpenAPI\Client\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -241,18 +219,17 @@ class SchufaApi
     }
 
     /**
-     * Operation createSchufaByIdAsync
+     * Operation getQueueAsync
      *
-     * schufa/{id}
+     * queue
      *
-     * @param  Body1 $body Address data (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSchufaByIdAsync($body)
+    public function getQueueAsync()
     {
-        return $this->createSchufaByIdAsyncWithHttpInfo($body)
+        return $this->getQueueAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,19 +238,18 @@ class SchufaApi
     }
 
     /**
-     * Operation createSchufaByIdAsyncWithHttpInfo
+     * Operation getQueueAsyncWithHttpInfo
      *
-     * schufa/{id}
+     * queue
      *
-     * @param  Body1 $body Address data (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSchufaByIdAsyncWithHttpInfo($body)
+    public function getQueueAsyncWithHttpInfo()
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse2003';
-        $request = $this->createSchufaByIdRequest($body);
+        $returnType = '\OpenAPI\Client\Model\InlineResponse2002';
+        $request = $this->getQueueRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -310,23 +286,16 @@ class SchufaApi
     }
 
     /**
-     * Create request for operation 'createSchufaById'
+     * Create request for operation 'getQueue'
      *
-     * @param  Body1 $body Address data (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSchufaByIdRequest($body)
+    protected function getQueueRequest()
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling createSchufaById'
-            );
-        }
 
-        $resourcePath = '/schufa';
+        $resourcePath = '/queue';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -335,14 +304,6 @@ class SchufaApi
 
 
 
-        // path params
-        if ($body !== null) {
-            $resourcePath = str_replace(
-                '{' . 'body' . '}',
-                ObjectSerializer::toPathValue($body),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;
@@ -405,7 +366,7 @@ class SchufaApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'POST',
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

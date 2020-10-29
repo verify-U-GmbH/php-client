@@ -118,6 +118,7 @@ Class | Method | HTTP request | Description
 *IdentificationsApi* | [**getIdentificationVideoById**](docs/Api/IdentificationsApi.md#getidentificationvideobyid) | **GET** /identifications/video/{id} | identifications/video/{id}
 *IdentificationsApi* | [**getIdentificationsList**](docs/Api/IdentificationsApi.md#getidentificationslist) | **GET** /identifications | identifications
 *IdentificationsApi* | [**getSchufaById**](docs/Api/IdentificationsApi.md#getschufabyid) | **GET** /identifications/schufa/{id} | identifications/schufa/{id}
+*QueueApi* | [**getQueue**](docs/Api/QueueApi.md#getqueue) | **GET** /queue | queue
 *SchufaApi* | [**createSchufaById**](docs/Api/SchufaApi.md#createschufabyid) | **POST** /schufa | schufa/{id}
 
 
@@ -132,6 +133,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [InlineResponse2001](docs/Model/InlineResponse2001.md)
  - [InlineResponse2002](docs/Model/InlineResponse2002.md)
+ - [InlineResponse2003](docs/Model/InlineResponse2003.md)
 
 
 ## Documentation For Authorization

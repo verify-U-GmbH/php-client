@@ -1,6 +1,6 @@
 <?php
 /**
- * Body
+ * InlineResponse2003
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * Body Class Doc Comment
+ * InlineResponse2003 Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Body implements ModelInterface, ArrayAccess
+class InlineResponse2003 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Body implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'body';
+    protected static $openAPIModelName = 'inline_response_200_3';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class Body implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\SplFileObject',
-        'description' => 'string'
+        'identification_id' => 'string',
+        'state' => 'string'
     ];
 
     /**
@@ -67,8 +67,8 @@ class Body implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'data' => 'binary',
-        'description' => null
+        'identification_id' => 'uuid',
+        'state' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class Body implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'description' => 'description'
+        'identification_id' => 'identification_id',
+        'state' => 'state'
     ];
 
     /**
@@ -108,8 +108,8 @@ class Body implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'description' => 'setDescription'
+        'identification_id' => 'setIdentificationId',
+        'state' => 'setState'
     ];
 
     /**
@@ -118,8 +118,8 @@ class Body implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'description' => 'getDescription'
+        'identification_id' => 'getIdentificationId',
+        'state' => 'getState'
     ];
 
     /**
@@ -182,8 +182,8 @@ class Body implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['identification_id'] = isset($data['identification_id']) ? $data['identification_id'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
     }
 
     /**
@@ -211,49 +211,49 @@ class Body implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets data
+     * Gets identification_id
      *
-     * @return \SplFileObject|null
+     * @return string|null
      */
-    public function getData()
+    public function getIdentificationId()
     {
-        return $this->container['data'];
+        return $this->container['identification_id'];
     }
 
     /**
-     * Sets data
+     * Sets identification_id
      *
-     * @param \SplFileObject|null $data Contract document in PDF format
+     * @param string|null $identification_id Identification Id
      *
      * @return $this
      */
-    public function setData($data)
+    public function setIdentificationId($identification_id)
     {
-        $this->container['data'] = $data;
+        $this->container['identification_id'] = $identification_id;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets state
      *
      * @return string|null
      */
-    public function getDescription()
+    public function getState()
     {
-        return $this->container['description'];
+        return $this->container['state'];
     }
 
     /**
-     * Sets description
+     * Sets state
      *
-     * @param string|null $description Description or title of the contract document
+     * @param string|null $state Schufa result for client
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setState($state)
     {
-        $this->container['description'] = $description;
+        $this->container['state'] = $state;
 
         return $this;
     }

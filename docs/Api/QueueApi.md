@@ -1,20 +1,20 @@
-# OpenAPI\Client\SchufaApi
+# OpenAPI\Client\QueueApi
 
 All URIs are relative to *https://app.verify-u.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSchufaById**](SchufaApi.md#createSchufaById) | **POST** /schufa | schufa/{id}
+[**getQueue**](QueueApi.md#getQueue) | **GET** /queue | queue
 
 
 
-## createSchufaById
+## getQueue
 
-> \OpenAPI\Client\Model\InlineResponse2003 createSchufaById($body)
+> \OpenAPI\Client\Model\InlineResponse2002 getQueue()
 
-schufa/{id}
+queue
 
-Creates a Schufa call for a client.
+Returns the state of the primary queue for F2F identification
 
 ### Example
 
@@ -29,33 +29,29 @@ $config = OpenAPI\Client\Configuration::getDefaultConfiguration()
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new OpenAPI\Client\Api\SchufaApi(
+$apiInstance = new OpenAPI\Client\Api\QueueApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \OpenAPI\Client\Model\Body1(); // Body1 | Address data
 
 try {
-    $result = $apiInstance->createSchufaById($body);
+    $result = $apiInstance->getQueue();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SchufaApi->createSchufaById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling QueueApi->getQueue: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Body1**](../Model/.md)| Address data |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\OpenAPI\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 

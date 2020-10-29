@@ -1,11 +1,11 @@
-# # Body
+# # InlineResponse2003
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\SplFileObject**](\SplFileObject.md) | Contract document in PDF format | [optional] 
-**description** | **string** | Description or title of the contract document | [optional] 
+**identification_id** | **string** | Identification Id | [optional] 
+**state** | **string** | Schufa result for client | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

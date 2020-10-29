@@ -57,8 +57,9 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'identification_id' => 'string',
-        'state' => 'string'
+        'agent_count' => 'float',
+        'customer_count' => 'float',
+        'expected_wait_period' => 'string'
     ];
 
     /**
@@ -67,8 +68,9 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'identification_id' => 'uuid',
-        'state' => null
+        'agent_count' => null,
+        'customer_count' => null,
+        'expected_wait_period' => null
     ];
 
     /**
@@ -98,8 +100,9 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'identification_id' => 'identification_id',
-        'state' => 'state'
+        'agent_count' => 'agent_count',
+        'customer_count' => 'customer_count',
+        'expected_wait_period' => 'expected_wait_period'
     ];
 
     /**
@@ -108,8 +111,9 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'identification_id' => 'setIdentificationId',
-        'state' => 'setState'
+        'agent_count' => 'setAgentCount',
+        'customer_count' => 'setCustomerCount',
+        'expected_wait_period' => 'setExpectedWaitPeriod'
     ];
 
     /**
@@ -118,8 +122,9 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'identification_id' => 'getIdentificationId',
-        'state' => 'getState'
+        'agent_count' => 'getAgentCount',
+        'customer_count' => 'getCustomerCount',
+        'expected_wait_period' => 'getExpectedWaitPeriod'
     ];
 
     /**
@@ -182,8 +187,9 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['identification_id'] = isset($data['identification_id']) ? $data['identification_id'] : null;
-        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['agent_count'] = isset($data['agent_count']) ? $data['agent_count'] : null;
+        $this->container['customer_count'] = isset($data['customer_count']) ? $data['customer_count'] : null;
+        $this->container['expected_wait_period'] = isset($data['expected_wait_period']) ? $data['expected_wait_period'] : null;
     }
 
     /**
@@ -211,49 +217,73 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets identification_id
+     * Gets agent_count
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getIdentificationId()
+    public function getAgentCount()
     {
-        return $this->container['identification_id'];
+        return $this->container['agent_count'];
     }
 
     /**
-     * Sets identification_id
+     * Sets agent_count
      *
-     * @param string|null $identification_id Identification Id
+     * @param float|null $agent_count Number of agent currently serving F2F queue
      *
      * @return $this
      */
-    public function setIdentificationId($identification_id)
+    public function setAgentCount($agent_count)
     {
-        $this->container['identification_id'] = $identification_id;
+        $this->container['agent_count'] = $agent_count;
 
         return $this;
     }
 
     /**
-     * Gets state
+     * Gets customer_count
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getState()
+    public function getCustomerCount()
     {
-        return $this->container['state'];
+        return $this->container['customer_count'];
     }
 
     /**
-     * Sets state
+     * Sets customer_count
      *
-     * @param string|null $state Schufa result for client
+     * @param float|null $customer_count Number of customers currently standing in F2F queue
      *
      * @return $this
      */
-    public function setState($state)
+    public function setCustomerCount($customer_count)
     {
-        $this->container['state'] = $state;
+        $this->container['customer_count'] = $customer_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets expected_wait_period
+     *
+     * @return string|null
+     */
+    public function getExpectedWaitPeriod()
+    {
+        return $this->container['expected_wait_period'];
+    }
+
+    /**
+     * Sets expected_wait_period
+     *
+     * @param string|null $expected_wait_period Expected wait period in 'MM:SS' format
+     *
+     * @return $this
+     */
+    public function setExpectedWaitPeriod($expected_wait_period)
+    {
+        $this->container['expected_wait_period'] = $expected_wait_period;
 
         return $this;
     }
