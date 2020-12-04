@@ -64,7 +64,9 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
         'id' => 'string',
         'issue_date' => '\DateTime',
         'mrz' => 'string',
-        'number' => 'string'
+        'number' => 'string',
+        'issuer' => 'string',
+        'nationality' => 'string'
     ];
 
     /**
@@ -79,7 +81,9 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
         'id' => 'uuid',
         'issue_date' => 'date',
         'mrz' => null,
-        'number' => null
+        'number' => null,
+        'issuer' => null,
+        'nationality' => null
     ];
 
     /**
@@ -115,7 +119,9 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
         'id' => 'id',
         'issue_date' => 'issue_date',
         'mrz' => 'mrz',
-        'number' => 'number'
+        'number' => 'number',
+        'issuer' => 'issuer',
+        'nationality' => 'nationality'
     ];
 
     /**
@@ -130,7 +136,9 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'issue_date' => 'setIssueDate',
         'mrz' => 'setMrz',
-        'number' => 'setNumber'
+        'number' => 'setNumber',
+        'issuer' => 'setIssuer',
+        'nationality' => 'setNationality'
     ];
 
     /**
@@ -145,7 +153,9 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'issue_date' => 'getIssueDate',
         'mrz' => 'getMrz',
-        'number' => 'getNumber'
+        'number' => 'getNumber',
+        'issuer' => 'getIssuer',
+        'nationality' => 'getNationality'
     ];
 
     /**
@@ -215,6 +225,8 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
         $this->container['issue_date'] = isset($data['issue_date']) ? $data['issue_date'] : null;
         $this->container['mrz'] = isset($data['mrz']) ? $data['mrz'] : null;
         $this->container['number'] = isset($data['number']) ? $data['number'] : null;
+        $this->container['issuer'] = isset($data['issuer']) ? $data['issuer'] : null;
+        $this->container['nationality'] = isset($data['nationality']) ? $data['nationality'] : null;
     }
 
     /**
@@ -254,7 +266,7 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
     /**
      * Sets country
      *
-     * @param string|null $country Country which issued this ID document
+     * @param string|null $country Country of ID document (ISO 3166-1 Alpha-2)
      *
      * @return $this
      */
@@ -405,6 +417,54 @@ class IdentificationsIdDocument implements ModelInterface, ArrayAccess
     public function setNumber($number)
     {
         $this->container['number'] = $number;
+
+        return $this;
+    }
+
+    /**
+     * Gets issuer
+     *
+     * @return string|null
+     */
+    public function getIssuer()
+    {
+        return $this->container['issuer'];
+    }
+
+    /**
+     * Sets issuer
+     *
+     * @param string|null $issuer MRZ Issuing country or organization(ISO 3166-1 Alpha-2)
+     *
+     * @return $this
+     */
+    public function setIssuer($issuer)
+    {
+        $this->container['issuer'] = $issuer;
+
+        return $this;
+    }
+
+    /**
+     * Gets nationality
+     *
+     * @return string|null
+     */
+    public function getNationality()
+    {
+        return $this->container['nationality'];
+    }
+
+    /**
+     * Sets nationality
+     *
+     * @param string|null $nationality MRZ nationality (ISO 3166-1 Alpha-2)
+     *
+     * @return $this
+     */
+    public function setNationality($nationality)
+    {
+        $this->container['nationality'] = $nationality;
 
         return $this;
     }

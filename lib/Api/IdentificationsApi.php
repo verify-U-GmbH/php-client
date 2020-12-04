@@ -415,34 +415,34 @@ class IdentificationsApi
     /**
      * Operation getEsignById
      *
-     * identifications/e-sign/{id}
+     * identifications/e-sign/{document_id}
      *
-     * @param  string $id ID of the identification (required)
+     * @param  string $document_id ID of the document (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject|map[string,string]
      */
-    public function getEsignById($id)
+    public function getEsignById($document_id)
     {
-        list($response) = $this->getEsignByIdWithHttpInfo($id);
+        list($response) = $this->getEsignByIdWithHttpInfo($document_id);
         return $response;
     }
 
     /**
      * Operation getEsignByIdWithHttpInfo
      *
-     * identifications/e-sign/{id}
+     * identifications/e-sign/{document_id}
      *
-     * @param  string $id ID of the identification (required)
+     * @param  string $document_id ID of the document (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject|map[string,string], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEsignByIdWithHttpInfo($id)
+    public function getEsignByIdWithHttpInfo($document_id)
     {
-        $request = $this->getEsignByIdRequest($id);
+        $request = $this->getEsignByIdRequest($document_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -540,16 +540,16 @@ class IdentificationsApi
     /**
      * Operation getEsignByIdAsync
      *
-     * identifications/e-sign/{id}
+     * identifications/e-sign/{document_id}
      *
-     * @param  string $id ID of the identification (required)
+     * @param  string $document_id ID of the document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEsignByIdAsync($id)
+    public function getEsignByIdAsync($document_id)
     {
-        return $this->getEsignByIdAsyncWithHttpInfo($id)
+        return $this->getEsignByIdAsyncWithHttpInfo($document_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -560,17 +560,17 @@ class IdentificationsApi
     /**
      * Operation getEsignByIdAsyncWithHttpInfo
      *
-     * identifications/e-sign/{id}
+     * identifications/e-sign/{document_id}
      *
-     * @param  string $id ID of the identification (required)
+     * @param  string $document_id ID of the document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEsignByIdAsyncWithHttpInfo($id)
+    public function getEsignByIdAsyncWithHttpInfo($document_id)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getEsignByIdRequest($id);
+        $request = $this->getEsignByIdRequest($document_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -609,21 +609,21 @@ class IdentificationsApi
     /**
      * Create request for operation 'getEsignById'
      *
-     * @param  string $id ID of the identification (required)
+     * @param  string $document_id ID of the document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getEsignByIdRequest($id)
+    protected function getEsignByIdRequest($document_id)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'document_id' is set
+        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getEsignById'
+                'Missing the required parameter $document_id when calling getEsignById'
             );
         }
 
-        $resourcePath = '/identifications/esign/{id}';
+        $resourcePath = '/identifications/esign/{document_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -633,10 +633,10 @@ class IdentificationsApi
 
 
         // path params
-        if ($id !== null) {
+        if ($document_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'document_id' . '}',
+                ObjectSerializer::toPathValue($document_id),
                 $resourcePath
             );
         }

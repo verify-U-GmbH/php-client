@@ -5,7 +5,7 @@ All URIs are relative to *https://app.verify-u.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAuditDocumentById**](IdentificationsApi.md#getAuditDocumentById) | **GET** /identifications/audit-document/{document_id} | identifications/audit-document/{document_id}
-[**getEsignById**](IdentificationsApi.md#getEsignById) | **GET** /identifications/esign/{id} | identifications/e-sign/{id}
+[**getEsignById**](IdentificationsApi.md#getEsignById) | **GET** /identifications/esign/{document_id} | identifications/e-sign/{document_id}
 [**getIdentificationById**](IdentificationsApi.md#getIdentificationById) | **GET** /identifications/{id} | identifications/{id}
 [**getIdentificationDocumentById**](IdentificationsApi.md#getIdentificationDocumentById) | **GET** /identifications/id-document/{document_id} | identifications/id-document/{document_id}
 [**getIdentificationVideoById**](IdentificationsApi.md#getIdentificationVideoById) | **GET** /identifications/video/{id} | identifications/video/{id}
@@ -79,9 +79,9 @@ Name | Type | Description  | Notes
 
 ## getEsignById
 
-> \SplFileObject getEsignById($id)
+> \SplFileObject getEsignById($document_id)
 
-identifications/e-sign/{id}
+identifications/e-sign/{document_id}
 
 Returns the client's contract document, signed by the customer with digital signature.
 
@@ -104,10 +104,10 @@ $apiInstance = new OpenAPI\Client\Api\IdentificationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | ID of the identification
+$document_id = 'document_id_example'; // string | ID of the document
 
 try {
-    $result = $apiInstance->getEsignById($id);
+    $result = $apiInstance->getEsignById($document_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IdentificationsApi->getEsignById: ', $e->getMessage(), PHP_EOL;
@@ -120,7 +120,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**string**](../Model/.md)| ID of the identification |
+ **document_id** | [**string**](../Model/.md)| ID of the document |
 
 ### Return type
 

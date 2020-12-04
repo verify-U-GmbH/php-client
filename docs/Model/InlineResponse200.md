@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **state** | **string** | OAuth parameter in format &#x60;[CLIENT_REFERENCE_ID]:[SESSION_ID]&#x60; supplied to identification gateway | [optional] 
 **status** | **string** | Identification status | [optional] 
 **audit_documents** | [**\OpenAPI\Client\Model\IdentificationsAuditDocuments[]**](IdentificationsAuditDocuments.md) | Audit documents | [optional] 
+**completed_documents** | [**\OpenAPI\Client\Model\IdentificationsCompletedDocuments[]**](IdentificationsCompletedDocuments.md) | Completed documents | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

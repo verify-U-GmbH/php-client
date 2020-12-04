@@ -72,7 +72,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'rejection_cause' => 'string',
         'state' => 'string',
         'status' => 'string',
-        'audit_documents' => '\OpenAPI\Client\Model\IdentificationsAuditDocuments[]'
+        'audit_documents' => '\OpenAPI\Client\Model\IdentificationsAuditDocuments[]',
+        'completed_documents' => '\OpenAPI\Client\Model\IdentificationsCompletedDocuments[]'
     ];
 
     /**
@@ -96,7 +97,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'rejection_cause' => null,
         'state' => null,
         'status' => null,
-        'audit_documents' => null
+        'audit_documents' => null,
+        'completed_documents' => null
     ];
 
     /**
@@ -141,7 +143,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'rejection_cause' => 'rejection_cause',
         'state' => 'state',
         'status' => 'status',
-        'audit_documents' => 'audit_documents'
+        'audit_documents' => 'audit_documents',
+        'completed_documents' => 'completed_documents'
     ];
 
     /**
@@ -165,7 +168,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'rejection_cause' => 'setRejectionCause',
         'state' => 'setState',
         'status' => 'setStatus',
-        'audit_documents' => 'setAuditDocuments'
+        'audit_documents' => 'setAuditDocuments',
+        'completed_documents' => 'setCompletedDocuments'
     ];
 
     /**
@@ -189,7 +193,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'rejection_cause' => 'getRejectionCause',
         'state' => 'getState',
         'status' => 'getStatus',
-        'audit_documents' => 'getAuditDocuments'
+        'audit_documents' => 'getAuditDocuments',
+        'completed_documents' => 'getCompletedDocuments'
     ];
 
     /**
@@ -268,6 +273,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['audit_documents'] = isset($data['audit_documents']) ? $data['audit_documents'] : null;
+        $this->container['completed_documents'] = isset($data['completed_documents']) ? $data['completed_documents'] : null;
     }
 
     /**
@@ -674,6 +680,30 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     public function setAuditDocuments($audit_documents)
     {
         $this->container['audit_documents'] = $audit_documents;
+
+        return $this;
+    }
+
+    /**
+     * Gets completed_documents
+     *
+     * @return \OpenAPI\Client\Model\IdentificationsCompletedDocuments[]|null
+     */
+    public function getCompletedDocuments()
+    {
+        return $this->container['completed_documents'];
+    }
+
+    /**
+     * Sets completed_documents
+     *
+     * @param \OpenAPI\Client\Model\IdentificationsCompletedDocuments[]|null $completed_documents Completed documents
+     *
+     * @return $this
+     */
+    public function setCompletedDocuments($completed_documents)
+    {
+        $this->container['completed_documents'] = $completed_documents;
 
         return $this;
     }

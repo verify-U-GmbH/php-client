@@ -1,6 +1,6 @@
 <?php
 /**
- * IdentificationsIdDocumentSecondary
+ * IdentificationsCompletedDocuments
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * IdentificationsIdDocumentSecondary Class Doc Comment
+ * IdentificationsCompletedDocuments Class Doc Comment
  *
  * @category Class
- * @description Support document to the primary ID document
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
+class IdentificationsCompletedDocuments implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = '_identifications_id_document_secondary';
+    protected static $openAPIModelName = '_identifications_completed_documents';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +57,8 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'country' => 'string',
-        'document_type' => 'string',
-        'expiration_date' => '\DateTime',
-        'id' => 'string',
-        'issue_date' => '\DateTime',
-        'mrz' => 'string',
-        'number' => 'string',
-        'issuer' => 'string',
-        'nationality' => 'string'
+        'created_at' => '\DateTime',
+        'id' => 'string'
     ];
 
     /**
@@ -75,15 +67,8 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'country' => null,
-        'document_type' => null,
-        'expiration_date' => 'date',
-        'id' => 'uuid',
-        'issue_date' => 'date',
-        'mrz' => null,
-        'number' => null,
-        'issuer' => null,
-        'nationality' => null
+        'created_at' => 'date-time',
+        'id' => 'uuid'
     ];
 
     /**
@@ -113,15 +98,8 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'country' => 'country',
-        'document_type' => 'document_type',
-        'expiration_date' => 'expiration_date',
-        'id' => 'id',
-        'issue_date' => 'issue_date',
-        'mrz' => 'mrz',
-        'number' => 'number',
-        'issuer' => 'issuer',
-        'nationality' => 'nationality'
+        'created_at' => 'created_at',
+        'id' => 'id'
     ];
 
     /**
@@ -130,15 +108,8 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'country' => 'setCountry',
-        'document_type' => 'setDocumentType',
-        'expiration_date' => 'setExpirationDate',
-        'id' => 'setId',
-        'issue_date' => 'setIssueDate',
-        'mrz' => 'setMrz',
-        'number' => 'setNumber',
-        'issuer' => 'setIssuer',
-        'nationality' => 'setNationality'
+        'created_at' => 'setCreatedAt',
+        'id' => 'setId'
     ];
 
     /**
@@ -147,15 +118,8 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'country' => 'getCountry',
-        'document_type' => 'getDocumentType',
-        'expiration_date' => 'getExpirationDate',
-        'id' => 'getId',
-        'issue_date' => 'getIssueDate',
-        'mrz' => 'getMrz',
-        'number' => 'getNumber',
-        'issuer' => 'getIssuer',
-        'nationality' => 'getNationality'
+        'created_at' => 'getCreatedAt',
+        'id' => 'getId'
     ];
 
     /**
@@ -218,15 +182,8 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
-        $this->container['document_type'] = isset($data['document_type']) ? $data['document_type'] : null;
-        $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['issue_date'] = isset($data['issue_date']) ? $data['issue_date'] : null;
-        $this->container['mrz'] = isset($data['mrz']) ? $data['mrz'] : null;
-        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
-        $this->container['issuer'] = isset($data['issuer']) ? $data['issuer'] : null;
-        $this->container['nationality'] = isset($data['nationality']) ? $data['nationality'] : null;
     }
 
     /**
@@ -254,73 +211,25 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets country
-     *
-     * @return string|null
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param string|null $country Country of ID document (ISO 3166-1 Alpha-2)
-     *
-     * @return $this
-     */
-    public function setCountry($country)
-    {
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets document_type
-     *
-     * @return string|null
-     */
-    public function getDocumentType()
-    {
-        return $this->container['document_type'];
-    }
-
-    /**
-     * Sets document_type
-     *
-     * @param string|null $document_type Type of this ID document
-     *
-     * @return $this
-     */
-    public function setDocumentType($document_type)
-    {
-        $this->container['document_type'] = $document_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiration_date
+     * Gets created_at
      *
      * @return \DateTime|null
      */
-    public function getExpirationDate()
+    public function getCreatedAt()
     {
-        return $this->container['expiration_date'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets expiration_date
+     * Sets created_at
      *
-     * @param \DateTime|null $expiration_date Date at which this ID document expires
+     * @param \DateTime|null $created_at Time at which the object was created in notation as defined by RFC 3339, section 5.6
      *
      * @return $this
      */
-    public function setExpirationDate($expiration_date)
+    public function setCreatedAt($created_at)
     {
-        $this->container['expiration_date'] = $expiration_date;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
@@ -338,133 +247,13 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id ID of this ID document
+     * @param string|null $id ID of this completed document
      *
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets issue_date
-     *
-     * @return \DateTime|null
-     */
-    public function getIssueDate()
-    {
-        return $this->container['issue_date'];
-    }
-
-    /**
-     * Sets issue_date
-     *
-     * @param \DateTime|null $issue_date Date at which this ID document was issued
-     *
-     * @return $this
-     */
-    public function setIssueDate($issue_date)
-    {
-        $this->container['issue_date'] = $issue_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets mrz
-     *
-     * @return string|null
-     */
-    public function getMrz()
-    {
-        return $this->container['mrz'];
-    }
-
-    /**
-     * Sets mrz
-     *
-     * @param string|null $mrz The 'machine-readable zone' entry of this ID document
-     *
-     * @return $this
-     */
-    public function setMrz($mrz)
-    {
-        $this->container['mrz'] = $mrz;
-
-        return $this;
-    }
-
-    /**
-     * Gets number
-     *
-     * @return string|null
-     */
-    public function getNumber()
-    {
-        return $this->container['number'];
-    }
-
-    /**
-     * Sets number
-     *
-     * @param string|null $number The number of this ID document
-     *
-     * @return $this
-     */
-    public function setNumber($number)
-    {
-        $this->container['number'] = $number;
-
-        return $this;
-    }
-
-    /**
-     * Gets issuer
-     *
-     * @return string|null
-     */
-    public function getIssuer()
-    {
-        return $this->container['issuer'];
-    }
-
-    /**
-     * Sets issuer
-     *
-     * @param string|null $issuer MRZ Issuing country or organization(ISO 3166-1 Alpha-2)
-     *
-     * @return $this
-     */
-    public function setIssuer($issuer)
-    {
-        $this->container['issuer'] = $issuer;
-
-        return $this;
-    }
-
-    /**
-     * Gets nationality
-     *
-     * @return string|null
-     */
-    public function getNationality()
-    {
-        return $this->container['nationality'];
-    }
-
-    /**
-     * Sets nationality
-     *
-     * @param string|null $nationality MRZ nationality (ISO 3166-1 Alpha-2)
-     *
-     * @return $this
-     */
-    public function setNationality($nationality)
-    {
-        $this->container['nationality'] = $nationality;
 
         return $this;
     }
