@@ -113,7 +113,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DocumentsApi* | [**createDocument**](docs/Api/DocumentsApi.md#createdocument) | **POST** /documents | documents
 *IdentificationsApi* | [**getAuditDocumentById**](docs/Api/IdentificationsApi.md#getauditdocumentbyid) | **GET** /identifications/audit-document/{document_id} | identifications/audit-document/{document_id}
-*IdentificationsApi* | [**getEsignById**](docs/Api/IdentificationsApi.md#getesignbyid) | **GET** /identifications/esign/{document_id} | identifications/e-sign/{document_id}
+*IdentificationsApi* | [**getEsignById**](docs/Api/IdentificationsApi.md#getesignbyid) | **GET** /identifications/e-sign/{document_id} | identifications/e-sign/{document_id}
 *IdentificationsApi* | [**getIdentificationById**](docs/Api/IdentificationsApi.md#getidentificationbyid) | **GET** /identifications/{id} | identifications/{id}
 *IdentificationsApi* | [**getIdentificationDocumentById**](docs/Api/IdentificationsApi.md#getidentificationdocumentbyid) | **GET** /identifications/id-document/{document_id} | identifications/id-document/{document_id}
 *IdentificationsApi* | [**getIdentificationVideoById**](docs/Api/IdentificationsApi.md#getidentificationvideobyid) | **GET** /identifications/video/{id} | identifications/video/{id}

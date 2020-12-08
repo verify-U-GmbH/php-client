@@ -5,7 +5,7 @@ All URIs are relative to *https://app.verify-u.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAuditDocumentById**](IdentificationsApi.md#getAuditDocumentById) | **GET** /identifications/audit-document/{document_id} | identifications/audit-document/{document_id}
-[**getEsignById**](IdentificationsApi.md#getEsignById) | **GET** /identifications/esign/{document_id} | identifications/e-sign/{document_id}
+[**getEsignById**](IdentificationsApi.md#getEsignById) | **GET** /identifications/e-sign/{document_id} | identifications/e-sign/{document_id}
 [**getIdentificationById**](IdentificationsApi.md#getIdentificationById) | **GET** /identifications/{id} | identifications/{id}
 [**getIdentificationDocumentById**](IdentificationsApi.md#getIdentificationDocumentById) | **GET** /identifications/id-document/{document_id} | identifications/id-document/{document_id}
 [**getIdentificationVideoById**](IdentificationsApi.md#getIdentificationVideoById) | **GET** /identifications/video/{id} | identifications/video/{id}

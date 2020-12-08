@@ -623,7 +623,7 @@ class IdentificationsApi
             );
         }
 
-        $resourcePath = '/identifications/esign/{document_id}';
+        $resourcePath = '/identifications/e-sign/{document_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
