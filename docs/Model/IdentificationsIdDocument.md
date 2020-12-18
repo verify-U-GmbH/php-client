@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**authority** | **string** | Issuing authority of the ID document | [optional] 
 **country** | **string** | Country of ID document (ISO 3166-1 Alpha-2) | [optional] 
 **document_type** | **string** | Type of this ID document | [optional] 
 **expiration_date** | [**\DateTime**](\DateTime.md) | Date at which this ID document expires | [optional] 

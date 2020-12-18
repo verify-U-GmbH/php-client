@@ -58,6 +58,7 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'authority' => 'string',
         'country' => 'string',
         'document_type' => 'string',
         'expiration_date' => '\DateTime',
@@ -75,6 +76,7 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'authority' => null,
         'country' => null,
         'document_type' => null,
         'expiration_date' => 'date',
@@ -113,6 +115,7 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'authority' => 'authority',
         'country' => 'country',
         'document_type' => 'document_type',
         'expiration_date' => 'expiration_date',
@@ -130,6 +133,7 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'authority' => 'setAuthority',
         'country' => 'setCountry',
         'document_type' => 'setDocumentType',
         'expiration_date' => 'setExpirationDate',
@@ -147,6 +151,7 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'authority' => 'getAuthority',
         'country' => 'getCountry',
         'document_type' => 'getDocumentType',
         'expiration_date' => 'getExpirationDate',
@@ -218,6 +223,7 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['authority'] = isset($data['authority']) ? $data['authority'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
         $this->container['document_type'] = isset($data['document_type']) ? $data['document_type'] : null;
         $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
@@ -252,6 +258,30 @@ class IdentificationsIdDocumentSecondary implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets authority
+     *
+     * @return string|null
+     */
+    public function getAuthority()
+    {
+        return $this->container['authority'];
+    }
+
+    /**
+     * Sets authority
+     *
+     * @param string|null $authority Issuing authority of the ID document
+     *
+     * @return $this
+     */
+    public function setAuthority($authority)
+    {
+        $this->container['authority'] = $authority;
+
+        return $this;
+    }
 
     /**
      * Gets country
